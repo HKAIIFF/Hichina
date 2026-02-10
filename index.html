@@ -35,6 +35,9 @@
                     },
                     backgroundImage: {
                         'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+                    },
+                    screens: {
+                        'xs': '375px', // 针对小屏手机优化
                     }
                 }
             }
@@ -48,19 +51,78 @@
         body.lang-cn .en-text { display: none !important; }
         body:not(.lang-cn) .cn-text { display: none !important; }
 
-        .mega-title { font-size: clamp(2.5rem, 5vw, 6rem); line-height: 1.1; font-weight: 700; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: -0.02em; }
-        .section-header { font-size: clamp(2rem, 3.5vw, 4rem); line-height: 1.1; font-weight: 700; margin-bottom: 2rem; font-family: 'Oswald', sans-serif; text-transform: uppercase; }
-        .content-h3 { font-size: 1.75rem; font-weight: 700; color: white; margin-bottom: 1.25rem; font-family: 'Noto Sans SC', sans-serif; display: flex; align-items: center; gap: 1rem; }
-        .content-p { font-size: 1.05rem; color: #999; margin-bottom: 1.5rem; text-align: justify; }
+        /* Typography - Smart Scaling */
+        .mega-title { 
+            font-size: clamp(2.2rem, 5vw + 1rem, 6rem); /* 自动适应 */
+            line-height: 1.1; 
+            font-weight: 700; 
+            font-family: 'Oswald', sans-serif; 
+            text-transform: uppercase; 
+            letter-spacing: -0.02em; 
+        }
         
-        .strategic-card { background: rgba(10, 10, 10, 0.8); border: 1px solid #262626; padding: 2rem; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column; backdrop-filter: blur(20px); }
+        .section-header { 
+            font-size: clamp(1.8rem, 4vw, 4rem); 
+            line-height: 1.1; 
+            font-weight: 700; 
+            margin-bottom: 2rem; 
+            font-family: 'Oswald', sans-serif; 
+            text-transform: uppercase; 
+        }
+        
+        .content-h3 { 
+            font-size: clamp(1.25rem, 3vw, 1.75rem); 
+            font-weight: 700; 
+            color: white; 
+            margin-bottom: 1.25rem; 
+            font-family: 'Noto Sans SC', sans-serif; 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+        }
+        
+        .content-p { 
+            font-size: clamp(0.95rem, 2vw, 1.05rem); 
+            color: #999; 
+            margin-bottom: 1.5rem; 
+            text-align: justify; 
+            word-break: break-word; /* 防止长单词溢出 */
+        }
+        
+        .strategic-card { 
+            background: rgba(10, 10, 10, 0.8); 
+            border: 1px solid #262626; 
+            padding: 1.5rem; /* 移动端默认内边距 */
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
+            position: relative; 
+            overflow: hidden; 
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            backdrop-filter: blur(20px); 
+        }
         @media (min-width: 768px) { .strategic-card { padding: 3rem; } }
-        .strategic-card:hover { border-color: #CCFF00; transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.9); }
         
-        .tag-pill { display: inline-flex; align-items: center; padding: 0.4rem 1.2rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 2rem; background: rgba(0,0,0,0.6); }
+        .strategic-card:hover { border-color: #CCFF00; transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.8); }
         
-        .role-btn { padding: 1rem 1.5rem; border-bottom: 2px solid #222; color: #666; font-weight: bold; transition: all 0.3s; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; font-size: 1rem; white-space: nowrap; }
+        .tag-pill { 
+            display: inline-flex; align-items: center; padding: 0.3rem 0.8rem; 
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; 
+            font-family: 'Space Mono', monospace; font-size: 0.7rem; 
+            color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; 
+            background: rgba(0,0,0,0.6); 
+        }
+        @media (min-width: 768px) { .tag-pill { padding: 0.4rem 1.2rem; font-size: 0.8rem; margin-bottom: 2rem; } }
+        
+        .role-btn { 
+            padding: 1rem 1.5rem; border-bottom: 2px solid #222; 
+            color: #666; font-weight: bold; transition: all 0.3s; 
+            font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; 
+            font-size: 1rem; white-space: nowrap; 
+            flex-shrink: 0; /* 防止在移动端被压缩 */
+        }
         @media (min-width: 768px) { .role-btn { padding: 1.5rem 3rem; font-size: 1.25rem; } }
+        
         .role-btn:hover { color: white; background: rgba(255,255,255,0.02); }
         .role-btn.active { border-bottom: 2px solid #CCFF00; color: #CCFF00; background: rgba(204, 255, 0, 0.05); }
         
@@ -68,24 +130,23 @@
         .role-content.active { display: grid; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #CCFF00; }
+        /* Custom Scrollbar for container */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-void bg-grid-pattern bg-[length:80px_80px]">
+<body class="bg-void bg-grid-pattern bg-[length:60px_60px] md:bg-[length:80px_80px]">
 
-    <nav class="fixed top-0 left-0 w-full z-50 bg-void/90 backdrop-blur-xl border-b border-border h-20 md:h-24 transition-all duration-300">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-void/90 backdrop-blur-xl border-b border-border h-16 md:h-24 transition-all duration-300">
         <div class="max-w-[1800px] mx-auto px-4 md:px-8 h-full flex items-center justify-between">
             <div class="flex items-center gap-3 md:gap-5 cursor-pointer group" onclick="window.scrollTo(0,0)">
-                <div class="w-10 h-10 md:w-12 md:h-12 border border-gray-600 flex items-center justify-center relative overflow-hidden group-hover:border-signal transition-colors rounded-sm bg-black">
-                    <i class="fa-solid fa-arrow-up-right-from-square text-white text-lg md:text-xl group-hover:text-signal transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                <div class="w-8 h-8 md:w-12 md:h-12 border border-gray-600 flex items-center justify-center relative overflow-hidden group-hover:border-signal transition-colors rounded-sm bg-black">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-white text-sm md:text-xl group-hover:text-signal transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
                 </div>
                 <div class="flex flex-col leading-none">
-                    <span class="font-heavy text-xl md:text-2xl text-white tracking-wide">HiChina</span>
-                    <span class="font-mono text-[8px] md:text-[10px] text-gray-500 tracking-[0.15em] uppercase group-hover:text-signal transition-colors mt-1 en-text">Global Export Base</span>
-                    <span class="font-mono text-[8px] md:text-[10px] text-gray-500 tracking-[0.15em] uppercase group-hover:text-signal transition-colors mt-1 cn-text">AI影视全球出海基地</span>
+                    <span class="font-heavy text-lg md:text-2xl text-white tracking-wide">HiChina</span>
+                    <span class="font-mono text-[9px] md:text-[10px] text-gray-500 tracking-[0.1em] uppercase group-hover:text-signal transition-colors mt-0.5 md:mt-1 en-text">Global Export Base</span>
+                    <span class="font-mono text-[9px] md:text-[10px] text-gray-500 tracking-[0.1em] uppercase group-hover:text-signal transition-colors mt-0.5 md:mt-1 cn-text">AI影视全球出海基地</span>
                 </div>
             </div>
             
@@ -94,22 +155,22 @@
                     <span class="en-text">Strategy</span><span class="cn-text">战略定位</span>
                 </a>
                 <a href="#channel" class="hover:text-gold transition-colors text-white py-2">
-                    <span class="en-text">Value I: Channel & Assets</span><span class="cn-text">价值 I：通道与资产</span>
+                    <span class="en-text">Value I: Channel</span><span class="cn-text">价值 I：通道与资产</span>
                 </a>
                 <a href="#silicon" class="hover:text-tech transition-colors py-2">
-                    <span class="en-text">Value II: Silicon Labor</span><span class="cn-text">价值 II：硅基生产力</span>
+                    <span class="en-text">Value II: Silicon</span><span class="cn-text">价值 II：硅基生产力</span>
                 </a>
                 <a href="#ecosystem" class="hover:text-signal transition-colors py-2">
                     <span class="en-text">Ecosystem</span><span class="cn-text">生态入驻</span>
                 </a>
             </div>
 
-            <div class="flex items-center gap-4">
-                <button onclick="toggleLanguage()" class="text-xs font-mono border border-gray-700 px-3 py-2 text-gray-400 hover:border-white hover:text-white transition-all uppercase">
-                    <span class="en-text">CN / 简</span>
-                    <span class="cn-text">EN / 英</span>
+            <div class="flex items-center gap-2 md:gap-4">
+                <button onclick="toggleLanguage()" class="text-[10px] md:text-xs font-mono border border-gray-700 px-2 py-1.5 md:px-3 md:py-2 text-gray-400 hover:border-white hover:text-white transition-all uppercase">
+                    <span class="en-text">CN/简</span>
+                    <span class="cn-text">EN/英</span>
                 </button>
-                <button class="bg-white text-black font-heavy px-4 md:px-8 py-2 md:py-3 hover:bg-signal hover:scale-105 transition-all text-xs md:text-sm uppercase tracking-widest border border-transparent hover:border-signal shadow-lg whitespace-nowrap">
+                <button class="bg-white text-black font-heavy px-3 md:px-6 py-2 md:py-3 hover:bg-signal hover:scale-105 transition-all text-[10px] md:text-sm uppercase tracking-widest border border-transparent hover:border-signal shadow-lg whitespace-nowrap">
                     <span class="en-text">Join the Base</span>
                     <span class="cn-text">入驻基地</span>
                 </button>
@@ -117,24 +178,24 @@
         </div>
     </nav>
 
-    <header id="strategy" class="relative min-h-screen flex flex-col justify-center pt-32 pb-20 px-4 md:px-16 overflow-hidden border-b border-border">
-        <div class="absolute top-0 right-0 w-[60vw] h-[60vw] bg-signal opacity-[0.03] blur-[150px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+    <header id="strategy" class="relative min-h-screen flex flex-col justify-center pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-16 overflow-hidden border-b border-border">
+        <div class="absolute top-0 right-0 w-[60vw] h-[60vw] bg-signal opacity-[0.03] blur-[100px] md:blur-[150px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
 
         <div class="max-w-[1800px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             
             <div class="lg:col-span-8 flex flex-col justify-center">
-                <div class="flex items-center gap-4 mb-10 animate-up">
-                    <div class="px-4 py-1.5 bg-signal text-black font-mono text-xs font-bold">STRATEGY 5.0</div>
-                    <div class="h-[1px] w-20 bg-gray-800"></div>
-                    <span class="font-mono text-gray-500 text-xs tracking-widest uppercase">National Digital Export Engine</span>
+                <div class="flex items-center gap-4 mb-6 md:mb-10 animate-up">
+                    <div class="px-3 py-1 md:px-4 md:py-1.5 bg-signal text-black font-mono text-[10px] md:text-xs font-bold">STRATEGY 5.0</div>
+                    <div class="h-[1px] w-12 md:w-20 bg-gray-800"></div>
+                    <span class="font-mono text-gray-500 text-[10px] md:text-xs tracking-widest uppercase">National Digital Export Engine</span>
                 </div>
 
-                <h1 class="mega-title text-white mb-10 animate-up">
+                <h1 class="mega-title text-white mb-8 md:mb-10 animate-up">
                     <span class="en-text">The Engine for <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-signal via-white to-white">Global Assetization</span> of Chinese Content</span>
                     <span class="cn-text">中国数字内容的<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-signal via-white to-white">全球资产化</span> 引擎</span>
                 </h1>
 
-                <div class="max-w-4xl animate-up space-y-10">
+                <div class="max-w-4xl animate-up space-y-8 md:space-y-10">
                     <p class="text-xl md:text-3xl text-gray-200 font-serif leading-relaxed border-l-4 border-signal pl-6 md:pl-8">
                         <span class="en-text">HiChina is not a physical "base", but a <strong>"Digital Asset Management & Global Distribution System"</strong> transforming Chinese production capacity into premium global assets.</span>
                         <span class="cn-text">HiChina 不是一个物理空间的「基地」，而是一套将中国产能转化为全球优质资产的<strong>「数字资产管理与全球分发体系」</strong>。</span>
@@ -152,28 +213,28 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-20 animate-up border-t border-gray-800 pt-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-16 md:mt-20 animate-up border-t border-gray-800 pt-10">
                     <div>
                         <div class="text-3xl md:text-5xl font-heavy text-white">Assetization</div>
-                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-3 uppercase tracking-wide">
+                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-2 md:mt-3 uppercase tracking-wide">
                             <span class="en-text">Traffic to Asset</span><span class="cn-text">从流量到资产</span>
                         </div>
                     </div>
                     <div>
                         <div class="text-3xl md:text-5xl font-heavy text-white">Silicon GDP</div>
-                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-3 uppercase tracking-wide">
+                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-2 md:mt-3 uppercase tracking-wide">
                             <span class="en-text">New Productivity</span><span class="cn-text">硅基劳动力增量</span>
                         </div>
                     </div>
                     <div>
                         <div class="text-3xl md:text-5xl font-heavy text-white">80% Margin</div>
-                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-3 uppercase tracking-wide">
+                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-2 md:mt-3 uppercase tracking-wide">
                             <span class="en-text">Top Tier Profit</span><span class="cn-text">抢占顶端利润</span>
                         </div>
                     </div>
                     <div>
                         <div class="text-3xl md:text-5xl font-heavy text-white">100 Billion</div>
-                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-3 uppercase tracking-wide">
+                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-2 md:mt-3 uppercase tracking-wide">
                             <span class="en-text">5-Year Goal</span><span class="cn-text">五年产业目标</span>
                         </div>
                     </div>
@@ -226,16 +287,16 @@
         
         <div class="max-w-[1600px] mx-auto relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-                <div class="lg:col-span-5 sticky top-32 h-fit">
+                <div class="lg:col-span-5 lg:sticky lg:top-32 h-fit mb-8 lg:mb-0">
                     <span class="tag-pill border-gold text-gold">CORE ADVANTAGE 01</span>
                     <h2 class="section-header text-white">
                         <span class="en-text">Export Channel &<br><span class="text-gold">Value Reshaping</span></span>
                         <span class="cn-text">出海通道与<br><span class="text-gold">价值重塑体系</span></span>
                     </h2>
                     
-                    <div class="space-y-10 mt-8 md:mt-12">
+                    <div class="space-y-6 md:space-y-10 mt-8 md:mt-12">
                         <div class="p-6 md:p-8 border-l-4 border-gray-800 hover:border-gold transition-colors bg-void">
-                            <h4 class="text-white font-bold mb-4 text-xl">
+                            <h4 class="text-white font-bold mb-4 text-lg md:text-xl">
                                 <span class="en-text">Why "Uploading" is not Exporting?</span>
                                 <span class="cn-text">为什么「上传」不是出海？</span>
                             </h4>
@@ -245,7 +306,7 @@
                             </p>
                         </div>
                         <div class="p-6 md:p-8 border-l-4 border-gold bg-gold/5">
-                            <h4 class="text-gold font-bold mb-4 text-xl">
+                            <h4 class="text-gold font-bold mb-4 text-lg md:text-xl">
                                 <span class="en-text">HiChina's Strategic Solution</span>
                                 <span class="cn-text">HiChina 的战略解法</span>
                             </h4>
@@ -323,7 +384,7 @@
                 
                     <div class="border border-gray-800 bg-[#0A0A0A] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
                         <div class="flex-1 text-center md:text-left z-10 w-full md:w-auto">
-                            <div class="text-xs text-gray-500 font-mono mb-2 uppercase tracking-wide">TRADITIONAL MODEL</div>
+                            <div class="text-[10px] text-gray-500 font-mono mb-2 uppercase tracking-wide">TRADITIONAL MODEL</div>
                             <div class="text-lg md:text-xl font-bold text-gray-400 mb-1">
                                 <span class="en-text">Ad Revenue Share</span><span class="cn-text">流量分成 (Ad Revenue)</span>
                             </div>
@@ -333,10 +394,10 @@
                         </div>
                         
                         <i class="fa-solid fa-arrow-right text-gray-700 text-xl hidden md:block z-10"></i>
-                        <i class="fa-solid fa-arrow-down text-gray-700 text-xl md:hidden z-10"></i>
+                        <i class="fa-solid fa-arrow-down text-gray-700 text-xl md:hidden z-10 py-2"></i>
                         
                         <div class="flex-1 text-center md:text-left z-10 pl-0 md:pl-6 w-full md:w-auto">
-                             <div class="text-xs text-gold font-mono mb-2 uppercase tracking-wide">HiChina MODEL</div>
+                             <div class="text-[10px] text-gold font-mono mb-2 uppercase tracking-wide">HiChina MODEL</div>
                              <div class="text-xl md:text-2xl font-heavy text-white mb-1">
                                  <span class="en-text">IP Asset Value</span><span class="cn-text">版权资产 (IP Asset)</span>
                              </div>
@@ -370,7 +431,7 @@
                     <span class="en-text">Not "Virtual Idols", but "Super Employees".<br>HiChina is defining the ultimate form of new productivity.</span>
                     <span class="cn-text">这不是「虚拟偶像」，这是「超级员工」。<br>HiChina 正在定义新质生产力的终极形态。</span>
                 </p>
-                <div class="text-gray-400 text-lg leading-relaxed space-y-6 text-justify mb-12">
+                <div class="text-gray-400 text-base md:text-lg leading-relaxed space-y-6 text-justify mb-12">
                     <p>
                         <span class="en-text">Traditionally, digital humans were just skins for entertainment. HiChina breaks this perception. We define digital humans as <strong>"Silicon-based Workforce"</strong>.</span>
                         <span class="cn-text">传统观念中，数字人只是用于娱乐的「皮囊」。HiChina 打破了这一认知。我们将数字人定义为<strong>「硅基劳动力 (Silicon-based Workforce)」</strong>。</span>
@@ -382,12 +443,12 @@
                 </div>
 
                 <div class="space-y-8">
-                    <div class="flex gap-8 group">
-                        <div class="w-16 h-16 bg-tech/10 text-tech flex items-center justify-center border border-tech rounded-sm flex-shrink-0 group-hover:bg-tech group-hover:text-white transition-all shadow-[0_0_15px_rgba(0,85,255,0.2)]">
-                            <i class="fa-solid fa-brain text-3xl"></i>
+                    <div class="flex gap-6 md:gap-8 group">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-tech/10 text-tech flex items-center justify-center border border-tech rounded-sm flex-shrink-0 group-hover:bg-tech group-hover:text-white transition-all shadow-[0_0_15px_rgba(0,85,255,0.2)]">
+                            <i class="fa-solid fa-brain text-2xl md:text-3xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-bold text-xl mb-2">
+                            <h4 class="text-white font-bold text-lg md:text-xl mb-2">
                                 <span class="en-text">OpenClaw Agent (The Brain)</span><span class="cn-text">OpenClaw Agent 加持 (The Brain)</span>
                             </h4>
                             <p class="text-sm text-gray-500 leading-relaxed">
@@ -397,12 +458,12 @@
                         </div>
                     </div>
                     
-                    <div class="flex gap-8 group">
-                        <div class="w-16 h-16 bg-tech/10 text-tech flex items-center justify-center border border-tech rounded-sm flex-shrink-0 group-hover:bg-tech group-hover:text-white transition-all shadow-[0_0_15px_rgba(0,85,255,0.2)]">
-                            <i class="fa-solid fa-hand-pointer text-3xl"></i>
+                    <div class="flex gap-6 md:gap-8 group">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-tech/10 text-tech flex items-center justify-center border border-tech rounded-sm flex-shrink-0 group-hover:bg-tech group-hover:text-white transition-all shadow-[0_0_15px_rgba(0,85,255,0.2)]">
+                            <i class="fa-solid fa-hand-pointer text-2xl md:text-3xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-bold text-xl mb-2">
+                            <h4 class="text-white font-bold text-lg md:text-xl mb-2">
                                 <span class="en-text">Reality Operation (The Hands)</span><span class="cn-text">现实操作能力 (The Hands)</span>
                             </h4>
                             <p class="text-sm text-gray-500 leading-relaxed">
@@ -476,7 +537,7 @@
                 </p>
             </div>
 
-            <div class="flex flex-wrap justify-center mb-16 border-b border-gray-800 gap-4 md:gap-8 overflow-x-auto">
+            <div class="flex flex-wrap justify-center mb-16 border-b border-gray-800 gap-4 md:gap-8 overflow-x-auto scrollbar-hide">
                 <button onclick="switchTab('prod')" id="btn-prod" class="role-btn active">
                     <span class="en-text">Production Co.</span><span class="cn-text">影视制作公司</span>
                 </button>
