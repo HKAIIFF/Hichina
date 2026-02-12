@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="zh-Hant" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HiChina AI Film Global Export Base</title>
-    <meta name="description" content="HiChina - Redefining Global Export. Transforming AI-Native Content into Global Assets.">
+    <title>HiChina Global | 中國AI影視全球出海基地 (Official)</title>
+    <meta name="description" content="HiChina - The Global High-Premium Export Engine. Transforming China's AI Production Capacity into Global Assets. Powered by HKAIIFF.">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -18,26 +21,29 @@
             theme: {
                 extend: {
                     colors: {
-                        void: '#000000',      
-                        panel: '#080808',     
+                        void: '#030303',      
+                        panel: '#0A0A0A',     
                         border: '#1F1F1F',    
-                        signal: '#CCFF00',    
-                        gold: '#D4AF37',      
-                        tech: '#0055FF',      
-                        text: '#CCCCCC',      
-                        sub: '#666666'
+                        signal: '#CCFF00',    // 增長信號/視覺衝擊
+                        gold: '#D4AF37',      // 資產權威
+                        tech: '#0055FF',      // 硅基未來
+                        text: '#E5E5E5',      
+                        sub: '#888888'
                     },
                     fontFamily: {
                         heavy: ['"Oswald"', 'sans-serif'],
                         mono: ['"Space Mono"', 'monospace'],
-                        sans: ['"Noto Sans SC"', 'sans-serif'],
-                        serif: ['"Noto Serif SC"', 'serif']
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif']
                     },
                     backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+                        'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px)",
                     },
                     screens: {
-                        'xs': '375px', // 针对小屏手机优化
+                        'xs': '375px',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(204, 255, 0, 0.5)',
                     }
                 }
             }
@@ -45,15 +51,16 @@
     </script>
 
     <style>
-        body { background-color: #000; color: #CCC; font-family: 'Noto Sans SC', sans-serif; overflow-x: hidden; line-height: 1.8; }
+        /* 基礎樣式 */
+        body { background-color: #030303; color: #E5E5E5; font-family: 'Noto Sans TC', sans-serif; overflow-x: hidden; line-height: 1.8; }
         
-        /* Language Toggle Classes */
-        body.lang-cn .en-text { display: none !important; }
-        body:not(.lang-cn) .cn-text { display: none !important; }
+        /* 語言切換邏輯 */
+        body.lang-en .cn-text { display: none !important; }
+        body:not(.lang-en) .en-text { display: none !important; }
 
-        /* Typography - Smart Scaling */
+        /* 排版系統 (深度響應式) */
         .mega-title { 
-            font-size: clamp(2.2rem, 5vw + 1rem, 6rem); /* 自动适应 */
+            font-size: clamp(2.5rem, 5.5vw, 6rem); 
             line-height: 1.1; 
             font-weight: 700; 
             font-family: 'Oswald', sans-serif; 
@@ -62,8 +69,8 @@
         }
         
         .section-header { 
-            font-size: clamp(1.8rem, 4vw, 4rem); 
-            line-height: 1.1; 
+            font-size: clamp(2rem, 3.5vw, 4rem); 
+            line-height: 1.2; 
             font-weight: 700; 
             margin-bottom: 2rem; 
             font-family: 'Oswald', sans-serif; 
@@ -71,343 +78,281 @@
         }
         
         .content-h3 { 
-            font-size: clamp(1.25rem, 3vw, 1.75rem); 
+            font-size: clamp(1.4rem, 2vw, 1.8rem); 
             font-weight: 700; 
             color: white; 
-            margin-bottom: 1.25rem; 
-            font-family: 'Noto Sans SC', sans-serif; 
-            display: flex; 
-            align-items: center; 
-            gap: 1rem; 
+            margin-bottom: 1.2rem; 
+            font-family: 'Noto Sans TC', sans-serif; 
+            line-height: 1.4;
         }
         
         .content-p { 
-            font-size: clamp(0.95rem, 2vw, 1.05rem); 
+            font-size: clamp(0.95rem, 1.2vw, 1.05rem); 
             color: #999; 
             margin-bottom: 1.5rem; 
             text-align: justify; 
-            word-break: break-word; /* 防止长单词溢出 */
+            line-height: 1.9;
         }
-        
-        .strategic-card { 
-            background: rgba(10, 10, 10, 0.8); 
-            border: 1px solid #262626; 
-            padding: 1.5rem; /* 移动端默认内边距 */
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
-            position: relative; 
-            overflow: hidden; 
-            height: 100%; 
-            display: flex; 
-            flex-direction: column; 
-            backdrop-filter: blur(20px); 
+
+        /* 高級組件：戰略信息卡片 */
+        .info-card { 
+            background: rgba(15, 15, 15, 0.6); 
+            border: 1px solid #1F1F1F; 
+            padding: 2rem; 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            backdrop-filter: blur(10px);
         }
-        @media (min-width: 768px) { .strategic-card { padding: 3rem; } }
-        
-        .strategic-card:hover { border-color: #CCFF00; transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.8); }
-        
+        @media (min-width: 1024px) { .info-card { padding: 3rem; } }
+        .info-card:hover { border-color: #333; transform: translateY(-5px); background: rgba(20, 20, 20, 0.8); }
+        .info-card.highlight-gold:hover { border-color: #D4AF37; }
+        .info-card.highlight-tech:hover { border-color: #0055FF; }
+        .info-card.highlight-signal:hover { border-color: #CCFF00; }
+
+        /* 膠囊標籤 */
         .tag-pill { 
             display: inline-flex; align-items: center; padding: 0.3rem 0.8rem; 
-            border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; 
-            font-family: 'Space Mono', monospace; font-size: 0.7rem; 
-            color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; 
-            background: rgba(0,0,0,0.6); 
+            border: 1px solid rgba(255,255,255,0.15); font-family: 'Space Mono', monospace; 
+            font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; 
+            margin-bottom: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 4px;
         }
-        @media (min-width: 768px) { .tag-pill { padding: 0.4rem 1.2rem; font-size: 0.8rem; margin-bottom: 2rem; } }
-        
-        .role-btn { 
-            padding: 1rem 1.5rem; border-bottom: 2px solid #222; 
-            color: #666; font-weight: bold; transition: all 0.3s; 
-            font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; 
-            font-size: 1rem; white-space: nowrap; 
-            flex-shrink: 0; /* 防止在移动端被压缩 */
+
+        /* 數據表格 */
+        .data-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 1rem; }
+        .data-table th { 
+            padding: 1.2rem 1rem; border-bottom: 1px solid #333; text-align: left; 
+            color: #666; font-family: 'Space Mono', monospace; font-size: 0.75rem; 
+            text-transform: uppercase; letter-spacing: 0.05em; 
         }
-        @media (min-width: 768px) { .role-btn { padding: 1.5rem 3rem; font-size: 1.25rem; } }
+        .data-table td { 
+            padding: 1.5rem 1rem; border-bottom: 1px solid #1A1A1A; 
+            color: #DDD; font-size: 1rem; vertical-align: top;
+        }
+        .data-table tr:last-child td { border-bottom: none; }
         
-        .role-btn:hover { color: white; background: rgba(255,255,255,0.02); }
-        .role-btn.active { border-bottom: 2px solid #CCFF00; color: #CCFF00; background: rgba(204, 255, 0, 0.05); }
-        
-        .role-content { display: none; animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .role-content.active { display: grid; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* Custom Scrollbar for container */
+        /* 隱藏滾動條 */
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* 特殊文字效果 */
+        .txt-gradient { background: linear-gradient(90deg, #CCFF00, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="bg-void bg-grid-pattern bg-[length:60px_60px] md:bg-[length:80px_80px]">
+<body class="bg-void bg-grid-pattern bg-[length:60px_60px] md:bg-[length:100px_100px]">
 
-    <nav class="fixed top-0 left-0 w-full z-50 bg-void/90 backdrop-blur-xl border-b border-border h-16 md:h-24 transition-all duration-300">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-void/90 backdrop-blur-xl border-b border-border h-16 md:h-24 transition-all duration-300" id="navbar">
         <div class="max-w-[1800px] mx-auto px-4 md:px-8 h-full flex items-center justify-between">
-            <div class="flex items-center gap-3 md:gap-5 cursor-pointer group" onclick="window.scrollTo(0,0)">
-                <div class="w-8 h-8 md:w-12 md:h-12 border border-gray-600 flex items-center justify-center relative overflow-hidden group-hover:border-signal transition-colors rounded-sm bg-black">
-                    <i class="fa-solid fa-arrow-up-right-from-square text-white text-sm md:text-xl group-hover:text-signal transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+            <div class="flex items-center gap-4 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                <div class="w-11 h-11 flex items-center justify-center bg-signal rounded-sm shadow-[0_0_15px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform duration-300">
+                    <span class="font-heavy text-2xl text-black leading-none tracking-tighter pt-[2px]">Hi</span>
                 </div>
+
                 <div class="flex flex-col leading-none">
-                    <span class="font-heavy text-lg md:text-2xl text-white tracking-wide">HiChina</span>
-                    <span class="font-mono text-[9px] md:text-[10px] text-gray-500 tracking-[0.1em] uppercase group-hover:text-signal transition-colors mt-0.5 md:mt-1 en-text">Global Export Base</span>
-                    <span class="font-mono text-[9px] md:text-[10px] text-gray-500 tracking-[0.1em] uppercase group-hover:text-signal transition-colors mt-0.5 md:mt-1 cn-text">AI影视全球出海基地</span>
+                    <span class="font-heavy text-xl md:text-2xl text-white tracking-wide">HiChina</span>
+                    <span class="font-mono text-[9px] text-sub tracking-widest uppercase mt-1 cn-text">中國AI影視全球出海基地</span>
+                    <span class="font-mono text-[9px] text-sub tracking-widest uppercase mt-1 en-text">China AI Film Global Export Base</span>
                 </div>
             </div>
             
-            <div class="hidden xl:flex items-center gap-8 font-mono text-xs font-bold text-gray-500 tracking-wider">
-                <a href="#strategy" class="hover:text-white transition-colors py-2">
-                    <span class="en-text">Strategy</span><span class="cn-text">战略定位</span>
-                </a>
-                <a href="#channel" class="hover:text-gold transition-colors text-white py-2">
-                    <span class="en-text">Value I: Channel</span><span class="cn-text">价值 I：通道与资产</span>
-                </a>
-                <a href="#silicon" class="hover:text-tech transition-colors py-2">
-                    <span class="en-text">Value II: Silicon</span><span class="cn-text">价值 II：硅基生产力</span>
-                </a>
-                <a href="#ecosystem" class="hover:text-signal transition-colors py-2">
-                    <span class="en-text">Ecosystem</span><span class="cn-text">生态入驻</span>
-                </a>
+            <div class="hidden xl:flex items-center gap-10 font-mono text-xs font-bold text-sub tracking-wider">
+                <a href="#paradigm" class="hover:text-white transition-colors py-2"><span class="cn-text">戰略機遇</span><span class="en-text">Opportunity</span></a>
+                <a href="#channel" class="hover:text-gold transition-colors py-2"><span class="cn-text">HKAIIFF 價值通道</span><span class="en-text">HKAIIFF Channel</span></a>
+                <a href="#silicon" class="hover:text-tech transition-colors py-2"><span class="cn-text">硅基生產力</span><span class="en-text">Silicon Force</span></a>
+                <a href="#talent" class="hover:text-signal transition-colors py-2"><span class="cn-text">未來人才</span><span class="en-text">Talent</span></a>
+                <a href="#ecosystem" class="hover:text-white transition-colors py-2"><span class="cn-text">生態入駐</span><span class="en-text">Ecosystem</span></a>
             </div>
 
-            <div class="flex items-center gap-2 md:gap-4">
-                <button onclick="toggleLanguage()" class="text-[10px] md:text-xs font-mono border border-gray-700 px-2 py-1.5 md:px-3 md:py-2 text-gray-400 hover:border-white hover:text-white transition-all uppercase">
-                    <span class="en-text">CN/简</span>
-                    <span class="cn-text">EN/英</span>
+            <div class="flex items-center gap-3">
+                <button onclick="toggleLanguage()" class="text-[10px] md:text-xs font-mono border border-border px-3 py-2 text-sub hover:border-white hover:text-white transition-all uppercase">
+                    <span class="cn-text">EN / ENG</span>
+                    <span class="en-text">繁 / CHT</span>
                 </button>
-                <button class="bg-white text-black font-heavy px-3 md:px-6 py-2 md:py-3 hover:bg-signal hover:scale-105 transition-all text-[10px] md:text-sm uppercase tracking-widest border border-transparent hover:border-signal shadow-lg whitespace-nowrap">
-                    <span class="en-text">Join the Base</span>
-                    <span class="cn-text">入驻基地</span>
-                </button>
+                <a href="#contact" class="bg-white text-black font-heavy px-6 py-3 hover:bg-signal hover:scale-105 transition-all text-xs uppercase tracking-widest shadow-lg whitespace-nowrap hidden md:block">
+                    <span class="cn-text">申請入駐</span><span class="en-text">Apply Now</span>
+                </a>
             </div>
         </div>
     </nav>
 
-    <header id="strategy" class="relative min-h-screen flex flex-col justify-center pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-16 overflow-hidden border-b border-border">
-        <div class="absolute top-0 right-0 w-[60vw] h-[60vw] bg-signal opacity-[0.03] blur-[100px] md:blur-[150px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+    <header class="relative min-h-screen flex flex-col justify-center pt-32 pb-20 px-4 md:px-16 overflow-hidden border-b border-border">
+        <div class="absolute top-0 right-0 w-[60vw] h-[60vw] bg-signal opacity-[0.03] blur-[150px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
 
-        <div class="max-w-[1800px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-            
+        <div class="max-w-[1800px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
             <div class="lg:col-span-8 flex flex-col justify-center">
-                <div class="flex items-center gap-4 mb-6 md:mb-10 animate-up">
-                    <div class="px-3 py-1 md:px-4 md:py-1.5 bg-signal text-black font-mono text-[10px] md:text-xs font-bold">STRATEGY 5.0</div>
-                    <div class="h-[1px] w-12 md:w-20 bg-gray-800"></div>
-                    <span class="font-mono text-gray-500 text-[10px] md:text-xs tracking-widest uppercase">National Digital Export Engine</span>
+                <div class="flex items-center gap-4 mb-8 animate-up">
+                    <div class="px-3 py-1 bg-signal text-black font-mono text-xs font-bold">WHITE PAPER V8.0</div>
+                    <div class="h-[1px] w-16 bg-border"></div>
+                    <span class="font-mono text-sub text-xs tracking-widest uppercase">
+                        <span class="cn-text">國家級數字出口戰略引擎</span>
+                        <span class="en-text">National Strategy Digital Export Engine</span>
+                    </span>
                 </div>
 
-                <h1 class="mega-title text-white mb-8 md:mb-10 animate-up">
-                    <span class="en-text">The Engine for <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-signal via-white to-white">Global Assetization</span> of Chinese Content</span>
-                    <span class="cn-text">中国数字内容的<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-signal via-white to-white">全球资产化</span> 引擎</span>
+                <h1 class="mega-title text-white mb-10 animate-up">
+                    <span class="cn-text">中國數字內容的<br><span class="txt-gradient">全球高溢價出海</span> 引擎</span>
+                    <span class="en-text">The Engine for <br><span class="txt-gradient">Global High-Premium</span> Export</span>
                 </h1>
 
-                <div class="max-w-4xl animate-up space-y-8 md:space-y-10">
-                    <p class="text-xl md:text-3xl text-gray-200 font-serif leading-relaxed border-l-4 border-signal pl-6 md:pl-8">
-                        <span class="en-text">HiChina is not a physical "base", but a <strong>"Digital Asset Management & Global Distribution System"</strong> transforming Chinese production capacity into premium global assets.</span>
-                        <span class="cn-text">HiChina 不是一个物理空间的「基地」，而是一套将中国产能转化为全球优质资产的<strong>「数字资产管理与全球分发体系」</strong>。</span>
-                    </p>
+                <div class="max-w-4xl animate-up space-y-10">
+                    <div class="text-2xl md:text-3xl text-gray-200 font-serif leading-relaxed border-l-4 border-signal pl-8 py-2">
+                        <span class="cn-text">HiChina 遠非傳統意義上的物理園區，而是中國 AI 影視產能通往全球市場的<strong>「資產煉金術」</strong>——一套集 HKAIIFF 價值認證、版權交易與數字發行為一體的<strong>「全球數字貿易操作系統」</strong>。</span>
+                        <span class="en-text">HiChina transcends the physical park. It is the <strong>"Asset Alchemy"</strong> for China's AI film capacity—a <strong>"Global Digital Trade Operating System"</strong> integrating HKAIIFF certification, copyright trading, and digital distribution.</span>
+                    </div>
                     
-                    <div class="text-gray-400 text-base md:text-lg leading-relaxed text-justify space-y-6">
+                    <div class="text-sub text-lg leading-loose space-y-6 text-justify">
                         <p>
-                            <span class="en-text">We are at a historical turning point from "Made in China" to "Created in China". In the past, Chinese digital content exports often fell into the "Traffic Trap"—relying on cheap ad revenue shares with short lifecycles and thin margins.</span>
-                            <span class="cn-text">我们正处于「中国制造」向「中国创造」转型的历史拐点。过去，中国的数字内容出海往往陷入「流量陷阱」——依赖廉价的点击分成，内容生命周期短，利润微薄。</span>
-                        </p>
-                        <p>
-                            <span class="en-text"><strong>HiChina AI Film Global Export Base</strong> is establishing a new export standard: through <strong>HKAIIFF Value Anchoring</strong> and the <strong>Silicon Workforce Matrix</strong>, we elevate Chinese AI-native content from cheap "consumables" to tradable, licensable, and securitizable <strong class="text-gold">"Premium Copyright Assets"</strong>. We help enterprises skip intermediaries and capture the top 80% of value chain profits.</span>
-                            <span class="cn-text"><strong>HiChina AI影视全球出海基地</strong> 致力于建立一套全新的出口标准：通过 <strong>HKAIIFF 价值锚定</strong> 与 <strong>硅基劳动力矩阵</strong>，让中国的 AI 原生内容不再是廉价的「快消品」，而是成为可交易、可授权、可证券化的<strong class="text-gold">「优质版权资产」</strong>。我们帮助企业和创作者跳过中间环节，直接抢占全球产业链顶端 80% 的利润。</span>
+                            <span class="cn-text">我們正處於「中國製造」向「中國創造」轉型的歷史拐點（第二次紅利期）。傳統的「上傳即出海」模式只能賺取微薄的流量費，深陷算法陷阱。<strong>HiChina</strong> 致力於建立一套全新的出口標準：通過 <strong>HKAIIFF 全球價值錨定</strong> 與 <strong>硅基勞動力矩陣</strong>，讓中國的 AI 原生內容不再是廉價的「快消品」，而是成為可交易、可授權、可證券化的<strong class="text-gold">「全球優質版權資產」</strong>。我們幫助企業直達全球市場，直接搶佔全球產業鏈頂端 80% 的利潤。</span>
+                            <span class="en-text">We are at a historical turning point. The traditional "upload as export" model is a trap. <strong>HiChina</strong> establishes a new standard: through <strong>HKAIIFF Value Anchoring</strong> and <strong>Silicon Workforce</strong>, we elevate content from cheap consumables to tradable, licensable <strong class="text-gold">"Premium Global Copyright Assets"</strong>. We help enterprises reach the global market directly, capturing the top 80% profit of the value chain.</span>
                         </p>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-16 md:mt-20 animate-up border-t border-gray-800 pt-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 animate-up border-t border-border pt-12">
                     <div>
-                        <div class="text-3xl md:text-5xl font-heavy text-white">Assetization</div>
-                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-2 md:mt-3 uppercase tracking-wide">
-                            <span class="en-text">Traffic to Asset</span><span class="cn-text">从流量到资产</span>
+                        <div class="text-4xl md:text-6xl font-heavy text-white">¥100B</div>
+                        <div class="text-xs font-mono text-sub mt-3 uppercase tracking-wide">
+                            <span class="cn-text">五年產業產值目標</span><span class="en-text">5-Year Output Goal</span>
                         </div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-5xl font-heavy text-white">Silicon GDP</div>
-                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-2 md:mt-3 uppercase tracking-wide">
-                            <span class="en-text">New Productivity</span><span class="cn-text">硅基劳动力增量</span>
+                        <div class="text-4xl md:text-6xl font-heavy text-white">80%</div>
+                        <div class="text-xs font-mono text-sub mt-3 uppercase tracking-wide">
+                            <span class="cn-text">搶佔產業鏈頂端利潤</span><span class="en-text">Top Tier Profit Margin</span>
                         </div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-5xl font-heavy text-white">80% Margin</div>
-                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-2 md:mt-3 uppercase tracking-wide">
-                            <span class="en-text">Top Tier Profit</span><span class="cn-text">抢占顶端利润</span>
+                        <div class="text-4xl md:text-6xl font-heavy text-white">$460M</div>
+                        <div class="text-xs font-mono text-sub mt-3 uppercase tracking-wide">
+                            <span class="cn-text">累計出口創匯</span><span class="en-text">Total Export Revenue</span>
                         </div>
                     </div>
                     <div>
-                        <div class="text-3xl md:text-5xl font-heavy text-white">100 Billion</div>
-                        <div class="text-xs md:text-sm font-mono text-gray-500 mt-2 md:mt-3 uppercase tracking-wide">
-                            <span class="en-text">5-Year Goal</span><span class="cn-text">五年产业目标</span>
+                        <div class="text-4xl md:text-6xl font-heavy text-white">1:20</div>
+                        <div class="text-xs font-mono text-sub mt-3 uppercase tracking-wide">
+                            <span class="cn-text">政府投入產出比</span><span class="en-text">Gov Investment ROI</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="lg:col-span-4 flex flex-col justify-end border-l border-gray-900 lg:pl-12 animate-up hidden lg:flex">
-                <div class="relative h-full w-full bg-panel border border-border p-10 flex flex-col justify-between group hover:border-white/30 transition-colors">
-                    <div class="absolute top-0 right-0 p-3 bg-gray-800 text-xs font-mono text-gray-400 font-bold">VALUE SHIFT MODEL</div>
-                    
-                    <div class="opacity-40 hover:opacity-100 transition-opacity duration-500">
-                        <div class="text-xs font-mono text-gray-500 mb-3 tracking-widest">TRADITIONAL EXPORT</div>
-                        <div class="text-2xl text-gray-300 font-heavy">
-                            <span class="en-text">VOLUME DRIVEN</span><span class="cn-text">流量驱动 (Volume Driven)</span>
-                        </div>
-                        <div class="text-sm text-gray-500 mt-2">
-                            <span class="en-text">CPM Ad Share / Low Price / No Compound Interest</span>
-                            <span class="cn-text">依靠CPM广告分成 / 单价低 / 无复利</span>
-                        </div>
-                        <div class="w-full h-1 bg-gray-800 mt-4"></div>
-                    </div>
-                    
-                    <div class="text-center text-gray-700 font-mono text-lg my-8"><i class="fa-solid fa-arrow-down-long"></i></div>
-                    
+            
+            <div class="lg:col-span-4 hidden lg:flex flex-col justify-end border-l border-border pl-16 animate-up">
+                <div class="bg-panel border border-border p-10 h-full flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 font-mono text-xs text-sub opacity-50">MODEL COMPARISON</div>
                     <div>
-                        <div class="text-xs font-mono text-signal mb-3 tracking-widest">HICHINA MODEL</div>
-                        <div class="text-4xl text-white font-heavy">
-                            <span class="en-text">ASSET DRIVEN</span><span class="cn-text">资产驱动 (Asset Driven)</span>
-                        </div>
-                        <div class="text-sm text-gray-400 mt-2 leading-relaxed">
-                            <span class="en-text">Copyright Confirmation + Global Licensing + Derivatives. <br><span class="text-white font-bold">Exponential Growth.</span></span>
-                            <span class="cn-text">版权资产确权 + 全球IP授权 + 衍生品开发。<br>实现 <span class="text-white font-bold">指数级复利增长</span>。</span>
-                        </div>
-                        <div class="w-full h-2 bg-signal mt-6 shadow-[0_0_20px_#CCFF00]"></div>
+                        <div class="text-xs font-mono text-sub mb-4 uppercase tracking-widest">Old Paradigm</div>
+                        <div class="text-3xl text-sub font-heavy mb-2 opacity-40">Volume Driven</div>
+                        <div class="text-sm text-sub mb-8"><span class="cn-text">傳統流量出海 (微利/算法依賴)</span><span class="en-text">Traffic Dependent (Low Margin)</span></div>
+                        <div class="h-px w-full bg-border mb-8"></div>
                     </div>
-
-                    <div class="mt-12 pt-8 border-t border-gray-800">
-                        <p class="text-xs text-gray-500 leading-relaxed font-mono">
-                            <span class="en-text">"Future containers will no longer hold clothes and appliances, but digital IPs and silicon workforce transmitted via fiber optics."</span>
-                            <span class="cn-text">"未来的集装箱里装的不再是服装和家电，而是通过光纤传输的数字 IP 与硅基劳动力。"</span>
-                        </p>
+                    <div class="text-center text-sub text-3xl my-4"><i class="fa-solid fa-arrow-down-long animate-bounce"></i></div>
+                    <div>
+                        <div class="text-xs font-mono text-signal mb-4 uppercase mt-8 tracking-widest">HiChina Paradigm</div>
+                        <div class="text-5xl text-white font-heavy mb-4">Asset Driven</div>
+                        <div class="text-base text-gold mb-6 leading-relaxed">
+                            <span class="cn-text">版權確權 + HKAIIFF 認證 + 全球授權<br>= <strong>指數級複利增長</strong></span>
+                            <span class="en-text">Copyright + HKAIIFF Cert + Licensing<br>= <strong>Exponential Growth</strong></span>
+                        </div>
+                        <div class="h-2 w-full bg-signal shadow-[0_0_20px_#CCFF00]"></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="channel" class="py-20 md:py-32 px-4 md:px-16 bg-panel border-t border-border relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop')] opacity-5 bg-cover bg-center mix-blend-overlay pointer-events-none"></div>
-        
-        <div class="max-w-[1600px] mx-auto relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-                <div class="lg:col-span-5 lg:sticky lg:top-32 h-fit mb-8 lg:mb-0">
-                    <span class="tag-pill border-gold text-gold">CORE ADVANTAGE 01</span>
+    <section id="paradigm" class="py-24 md:py-40 px-4 md:px-16 bg-panel border-t border-border">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+                <div class="lg:col-span-5">
+                    <span class="tag-pill border-white text-white">CHAPTER 1: HISTORIC OPPORTUNITY</span>
                     <h2 class="section-header text-white">
-                        <span class="en-text">Export Channel &<br><span class="text-gold">Value Reshaping</span></span>
-                        <span class="cn-text">出海通道与<br><span class="text-gold">价值重塑体系</span></span>
+                        <span class="cn-text">從工業出口到<br><span class="text-gray-500">內容出口的歷史躍遷</span></span>
+                        <span class="en-text">Leap from Industrial to<br><span class="text-gray-500">Content Export</span></span>
                     </h2>
                     
-                    <div class="space-y-6 md:space-y-10 mt-8 md:mt-12">
-                        <div class="p-6 md:p-8 border-l-4 border-gray-800 hover:border-gold transition-colors bg-void">
-                            <h4 class="text-white font-bold mb-4 text-lg md:text-xl">
-                                <span class="en-text">Why "Uploading" is not Exporting?</span>
-                                <span class="cn-text">为什么「上传」不是出海？</span>
-                            </h4>
-                            <p class="content-p mb-0">
-                                <span class="en-text">In the AI era, translation costs are near zero. The real pain point: Is your content settled as "cheap clips" by traffic, or traded as "copyright assets" by IP valuation?</span>
-                                <span class="cn-text">AI 时代，语言转换成本趋近于零。真正的痛点是：你的作品在海外是作为「廉价短视频」按流量结算，还是作为「版权资产」按 IP 估值交易？</span>
-                            </p>
+                    <div class="space-y-10 text-sub text-lg leading-relaxed">
+                        <div class="pl-6 border-l border-border hover:border-white transition-colors">
+                            <h4 class="text-white font-bold mb-3 text-xl"><span class="cn-text">第一次紅利 (1980-2020)：義烏模式</span><span class="en-text">1st Dividend: Yiwu Model</span></h4>
+                            <p class="cn-text mb-0">依靠「低成本製造 + 全球分銷」創造了工業品出口奇蹟。但隨著人口紅利消失，這一模式的邊際效益遞減，利潤率長期徘徊在 5-10% 的低位，且面臨高昂的運輸成本與關稅壁壘。</p>
+                            <p class="en-text mb-0">Created an industrial export miracle via "Low Cost Mfg". But with diminishing returns, margins are stuck at 5-10%, facing high logistics costs and trade barriers.</p>
                         </div>
-                        <div class="p-6 md:p-8 border-l-4 border-gold bg-gold/5">
-                            <h4 class="text-gold font-bold mb-4 text-lg md:text-xl">
-                                <span class="en-text">HiChina's Strategic Solution</span>
-                                <span class="cn-text">HiChina 的战略解法</span>
-                            </h4>
-                            <p class="content-p mb-0 text-gold/90">
-                                <span class="en-text">Through the <strong class="text-white">HKAIIFF</strong> system, we provide "value anchoring" for Chinese content. This is an alchemy channel that transforms Chinese capacity into premium global assets.</span>
-                                <span class="cn-text">我们通过 <strong class="text-white">HKAIIFF（香港AI国际电影节）</strong> 体系，为中国内容提供「价值锚定」。这是一条将中国产能转化为全球高溢价资产的炼金术通道。</span>
-                            </p>
+                        
+                        <div class="pl-6 border-l-4 border-signal bg-void/50 py-4 pr-4">
+                            <h4 class="text-signal font-bold mb-3 text-xl"><span class="cn-text">第二次紅利 (2025-2035)：HiChina 模式</span><span class="en-text">2nd Dividend: HiChina Model</span></h4>
+                            <p class="cn-text mb-4">這是「AI 算力 + 全球版權發行」的新出口奇蹟。AI 原生內容具有<strong>「零邊際成本」、「零運輸成本」、「零關稅壁壘」</strong>的三大特徵。</p>
+                            <p class="cn-text mb-0">HiChina 通過將內容資產化，將利潤率從製造業的 5% 提升至內容產業的 <strong>50-80%</strong>。這是一次對出口模式的維度提升，也是中國經濟換道超車的又一次機遇。</p>
+                            <p class="en-text mb-0">The new miracle of "AI Computing + Global Copyright". AI content has <strong>Zero Marginal Cost, Zero Logistics, Zero Tariffs</strong>. This is a dimensional upgrade of the export model and another opportunity for China's economy to overtake on a bend.</p>
                         </div>
                     </div>
                 </div>
+                
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <div class="info-card highlight-signal">
+                        <div class="absolute top-0 right-0 bg-signal text-black px-4 py-1 text-xs font-bold font-mono">VS COMPARISON</div>
+                        <h3 class="content-h3 mb-10"><span class="cn-text">出口模式全維度解析</span><span class="en-text">Export Model Comparison</span></h3>
+                        
+                        <div class="hidden md:block">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th width="25%">DIMENSION</th>
+                                        <th width="35%">工業品出口 (INDUSTRIAL)</th>
+                                        <th width="40%" class="text-signal">AI 內容出口 (AI CONTENT)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="cn-text">邊際成本</span><span class="en-text">Marginal Cost</span></td>
+                                        <td><span class="cn-text">線性增長 (按件計算)</span><span class="en-text">Linear (Per Unit)</span></td>
+                                        <td class="text-white font-bold"><span class="cn-text">趨近於零 (無限複製)</span><span class="en-text">Near Zero (Infinite)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="cn-text">運輸/物流</span><span class="en-text">Logistics</span></td>
+                                        <td><span class="cn-text">高 (海運/空運/倉儲)</span><span class="en-text">High (Sea/Air)</span></td>
+                                        <td class="text-white font-bold"><span class="cn-text">零 (光纖傳輸)</span><span class="en-text">Zero (Fiber Optics)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="cn-text">關稅壁壘</span><span class="en-text">Tariff Barriers</span></td>
+                                        <td><span class="cn-text">10-30% (貿易戰風險)</span><span class="en-text">10-30% (Trade Risk)</span></td>
+                                        <td class="text-white font-bold"><span class="cn-text">零 (數字服務貿易)</span><span class="en-text">Zero (Digital Service)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="cn-text">市場規模</span><span class="en-text">Market Scale</span></td>
+                                        <td><span class="cn-text">受限於產能</span><span class="en-text">Limited by Capacity</span></td>
+                                        <td class="text-white font-bold"><span class="cn-text">無上限 (全球併發)</span><span class="en-text">Unlimited (Concurrent)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="cn-text">利潤率</span><span class="en-text">Profit Margin</span></td>
+                                        <td class="text-sub">5 - 10%</td>
+                                        <td class="text-signal font-heavy text-xl">50 - 80%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                <div class="lg:col-span-7 space-y-6">
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="border border-gray-800 bg-[#0A0A0A] p-6 md:p-8 hover:border-gold/50 transition-all duration-300 h-full flex flex-col">
-                             <div class="flex justify-between items-start mb-6">
-                                 <span class="px-3 py-1 border border-gold text-gold text-xs font-mono">
-                                     <span class="en-text">VALUE ANCHOR</span><span class="cn-text">价值锚点</span>
-                                 </span>
-                                 <i class="fa-solid fa-trophy text-gold/30 text-2xl"></i>
-                             </div>
-                             <h3 class="text-xl md:text-2xl font-heavy text-white mb-4">
-                                 <span class="en-text">HKAIIFF Ecosystem</span><span class="cn-text">HKAIIFF 国际电影节生态</span>
-                             </h3>
-                             <p class="text-sm text-gray-400 mb-6 leading-relaxed text-justify">
-                                 <span class="en-text">The world's first AI-native film festival. It is not just a showcase platform, but an asset pricing center. Nomination means international recognition, elevating works from "material level" to "copyright level".</span>
-                                 <span class="cn-text">全球首个 AI 原生电影节。它不仅是展示平台，更是资产定价中心。入围即意味着获得国际认可，作品身价立刻从「素材级」跃升至「版权级」。</span>
-                             </p>
-                             <ul class="space-y-3 mt-auto">
-                                 <li class="flex items-center text-sm text-gray-300">
-                                     <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3 shrink-0"></span>
-                                     <span class="en-text">Copyright Premium 500%+</span><span class="cn-text">获奖作品版权溢价 500%+</span>
-                                 </li>
-                                 <li class="flex items-center text-sm text-gray-300">
-                                     <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3 shrink-0"></span>
-                                     <span class="en-text">Global Tour in 30+ Cities</span><span class="cn-text">全球 30+ 城市巡展路演</span>
-                                 </li>
-                                 <li class="flex items-center text-sm text-gray-300">
-                                     <span class="w-1.5 h-1.5 bg-gold rounded-full mr-3 shrink-0"></span>
-                                     <span class="en-text">Direct connect to Netflix/HBO</span><span class="cn-text">直接对接 Netflix/HBO 采购部</span>
-                                 </li>
-                             </ul>
-                        </div>
-                
-                        <div class="border border-gray-800 bg-[#0A0A0A] p-6 md:p-8 hover:border-blue-500/50 transition-all duration-300 h-full flex flex-col">
-                             <div class="flex justify-between items-start mb-6">
-                                 <span class="px-3 py-1 border border-blue-500 text-blue-500 text-xs font-mono">
-                                     <span class="en-text">TRADING</span><span class="cn-text">交易变现</span>
-                                 </span>
-                                 <i class="fa-solid fa-globe text-blue-500/30 text-2xl"></i>
-                             </div>
-                             <h3 class="text-xl md:text-2xl font-heavy text-white mb-4">
-                                 <span class="en-text">HKAIFM Copyright Network</span><span class="cn-text">HKAIFM 全球版权交易网</span>
-                             </h3>
-                             <p class="text-sm text-gray-400 mb-6 leading-relaxed text-justify">
-                                 <span class="en-text">Not a traffic mover, but a copyright trader. This is a B2B bulk trading market focusing on copyright buyouts, regional exclusive licensing, and IP derivative development.</span>
-                                 <span class="cn-text">不做流量的搬运工，做版权的操盘手。这是 B2B 的大宗交易市场，专注于版权买断、区域独家授权与 IP 衍生开发。</span>
-                             </p>
-                             <ul class="space-y-3 mt-auto">
-                                 <li class="flex items-center text-sm text-gray-300">
-                                     <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 shrink-0"></span>
-                                     <span class="en-text">Capture 80% Top Profits</span><span class="cn-text">抢占产业链 80% 的顶端利润</span>
-                                 </li>
-                                 <li class="flex items-center text-sm text-gray-300">
-                                     <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 shrink-0"></span>
-                                     <span class="en-text">Smart Contracts Global Settlement</span><span class="cn-text">智能合约保障全球分账</span>
-                                 </li>
-                                 <li class="flex items-center text-sm text-gray-300">
-                                     <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 shrink-0"></span>
-                                     <span class="en-text">Export Games/Derivatives Rights</span><span class="cn-text">不仅出口视频，更出口游戏/周边改编权</span>
-                                 </li>
-                             </ul>
-                        </div>
-                    </div>
-                
-                    <div class="border border-gray-800 bg-[#0A0A0A] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
-                        <div class="flex-1 text-center md:text-left z-10 w-full md:w-auto">
-                            <div class="text-[10px] text-gray-500 font-mono mb-2 uppercase tracking-wide">TRADITIONAL MODEL</div>
-                            <div class="text-lg md:text-xl font-bold text-gray-400 mb-1">
-                                <span class="en-text">Ad Revenue Share</span><span class="cn-text">流量分成 (Ad Revenue)</span>
+                        <div class="md:hidden space-y-6">
+                            <div class="border-b border-border pb-4">
+                                <div class="text-xs text-sub uppercase mb-2">Marginal Cost & Logistics</div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sub line-through text-sm">高成本/高關稅</span>
+                                    <div class="text-right">
+                                        <span class="text-white font-bold block">零成本</span>
+                                        <span class="text-xs text-gray-500">無限複製/光纖傳輸</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text-xs md:text-sm text-gray-600">
-                                <span class="en-text">Low margin, algorithm dependent</span><span class="cn-text">利润微薄，受制于平台算法</span>
+                            <div class="bg-signal/5 border border-signal/20 p-4">
+                                <div class="text-xs text-signal uppercase mb-2">Profit Margin Gap</div>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <span class="text-sub text-xs block">傳統製造</span>
+                                        <span class="text-sub font-mono">5-10%</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-signal text-xs block font-bold">HiChina AI</span>
+                                        <span class="text-signal font-heavy text-2xl">50-80%</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <i class="fa-solid fa-arrow-right text-gray-700 text-xl hidden md:block z-10"></i>
-                        <i class="fa-solid fa-arrow-down text-gray-700 text-xl md:hidden z-10 py-2"></i>
-                        
-                        <div class="flex-1 text-center md:text-left z-10 pl-0 md:pl-6 w-full md:w-auto">
-                             <div class="text-[10px] text-gold font-mono mb-2 uppercase tracking-wide">HiChina MODEL</div>
-                             <div class="text-xl md:text-2xl font-heavy text-white mb-1">
-                                 <span class="en-text">IP Asset Value</span><span class="cn-text">版权资产 (IP Asset)</span>
-                             </div>
-                             <div class="text-xs md:text-sm text-gold/80">
-                                 <span class="en-text">Prepayment + Buyout + Royalty</span><span class="cn-text">预付费 + 买断 + 衍生分润</span>
-                             </div>
-                        </div>
-                        
-                        <div class="bg-gold text-black font-bold px-5 py-2 text-sm z-10 shadow-[0_0_15px_rgba(212,175,55,0.4)] mt-4 md:mt-0 whitespace-nowrap">
-                            <span class="en-text">Profit Up 10x</span><span class="cn-text">利润提升 10x</span>
                         </div>
                     </div>
                 </div>
@@ -415,353 +360,354 @@
         </div>
     </section>
 
-    <section id="silicon" class="py-20 md:py-32 px-4 md:px-16 bg-void border-t border-border relative">
-        <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#050510] to-transparent pointer-events-none"></div>
-        
-        <div class="max-w-[1600px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-            <div>
-                <span class="tag-pill border-tech text-tech">CORE ADVANTAGE 02</span>
-                <h2 class="section-header text-white">
-                    <span class="en-text">Silicon Productivity:<br><span class="text-tech">Creating New GDP</span></span>
-                    <span class="cn-text">硅基生产力：<br><span class="text-tech">创造全新 GDP</span></span>
-                </h2>
-                <div class="h-1 w-24 bg-tech mb-10 shadow-[0_0_20px_#0055FF]"></div>
-                
-                <p class="text-xl md:text-2xl text-white font-bold mb-8 font-serif">
-                    <span class="en-text">Not "Virtual Idols", but "Super Employees".<br>HiChina is defining the ultimate form of new productivity.</span>
-                    <span class="cn-text">这不是「虚拟偶像」，这是「超级员工」。<br>HiChina 正在定义新质生产力的终极形态。</span>
-                </p>
-                <div class="text-gray-400 text-base md:text-lg leading-relaxed space-y-6 text-justify mb-12">
-                    <p>
-                        <span class="en-text">Traditionally, digital humans were just skins for entertainment. HiChina breaks this perception. We define digital humans as <strong>"Silicon-based Workforce"</strong>.</span>
-                        <span class="cn-text">传统观念中，数字人只是用于娱乐的「皮囊」。HiChina 打破了这一认知。我们将数字人定义为<strong>「硅基劳动力 (Silicon-based Workforce)」</strong>。</span>
-                    </p>
-                    <p>
-                        <span class="en-text">By fusing advanced <strong>1:1 Digital Twin Technology</strong> with <strong>OpenClaw Skill Agent</strong> architecture, we endow digital humans with "Brains" and "Hands". They are no longer passive performers but intelligent employees capable of connecting to reality, operating software, and processing business.</span>
-                        <span class="cn-text">通过融合最先进的 <strong>1:1 数字孪生技术</strong> 与 <strong>OpenClaw Skill Agent</strong> 架构，我们赋予了数字人「大脑」与「双手」。它们不再是被动的表演者，而是能够主动联通现实、操作软件、处理业务的智能员工。</span>
-                    </p>
-                </div>
+    <section id="channel" class="py-24 md:py-40 px-4 md:px-16 bg-void border-t border-border relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop')] opacity-10 bg-cover bg-center mix-blend-screen pointer-events-none"></div>
 
-                <div class="space-y-8">
-                    <div class="flex gap-6 md:gap-8 group">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-tech/10 text-tech flex items-center justify-center border border-tech rounded-sm flex-shrink-0 group-hover:bg-tech group-hover:text-white transition-all shadow-[0_0_15px_rgba(0,85,255,0.2)]">
-                            <i class="fa-solid fa-brain text-2xl md:text-3xl"></i>
+        <div class="max-w-[1800px] mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-5 mb-10 lg:mb-0">
+                    <span class="tag-pill border-gold text-gold">CORE ADVANTAGE 01</span>
+                    <h2 class="section-header text-white">
+                        <span class="cn-text">HKAIIFF 價值通道與<br><span class="text-gold">資產重塑體系</span></span>
+                        <span class="en-text">HKAIIFF Channel &<br><span class="text-gold">Value Reshaping</span></span>
+                    </h2>
+                    
+                    <div class="space-y-10 mt-10">
+                        <div class="p-8 border-l-4 border-gray-700 bg-panel">
+                            <h4 class="text-white font-bold mb-4 text-xl"><span class="cn-text">為什麼「上傳」不是出海？</span><span class="en-text">Why "Uploading" != Exporting?</span></h4>
+                            <p class="content-p mb-0">
+                                <span class="cn-text">AI 時代，語言轉換成本趨近於零。但如果不解決<strong>「價值認定」</strong>的問題，你的內容在海外平台只會被算法標記為「廉價快消品」，只能賺取微薄的廣告分成（Ad Revenue），隨時面臨被限流或封號的風險。</span>
+                                <span class="en-text">In the AI era, translation is free. But without <strong>"Value Certification"</strong>, content is just cheap consumable fodder for algorithms, earning thin ad revenue with high risk.</span>
+                            </p>
                         </div>
-                        <div>
-                            <h4 class="text-white font-bold text-lg md:text-xl mb-2">
-                                <span class="en-text">OpenClaw Agent (The Brain)</span><span class="cn-text">OpenClaw Agent 加持 (The Brain)</span>
+                        <div class="p-8 border-l-4 border-gold bg-gold/5">
+                            <h4 class="text-gold font-bold mb-4 text-xl">
+                                <span class="cn-text">HiChina x HKAIIFF 戰略解法</span><span class="en-text">The HKAIIFF Solution</span>
                             </h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">
-                                <span class="en-text">Possesses logical reasoning and decision-making capabilities. Understands complex business intent, negotiates, and optimizes strategies autonomously.</span>
-                                <span class="cn-text">数字人具备了逻辑推理与决策能力。它们可以理解复杂的商业意图，处理客户投诉，进行多轮商务谈判，甚至根据数据反馈自主优化工作策略。</span>
+                            <p class="content-p mb-0 text-gold/90">
+                                <span class="cn-text">我們通過與 <strong class="text-white">HKAIIFF（香港AI國際電影節）</strong> 的深度綁定，為中國內容提供「價值錨定」。通過電影節的權威背書，我們將「標品」升級為「精品」，讓創作者直接對話全球頂級買家，實現從 C 端流量費向 B 端版權費（IP Asset）的躍遷。</span>
+                                <span class="en-text">Through deep integration with <strong class="text-white">HKAIIFF</strong>, we provide "value anchoring". We upgrade commodities to premium assets, enabling direct access to global buyers and shifting from traffic fees to Copyright IP revenue.</span>
                             </p>
                         </div>
                     </div>
-                    
-                    <div class="flex gap-6 md:gap-8 group">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-tech/10 text-tech flex items-center justify-center border border-tech rounded-sm flex-shrink-0 group-hover:bg-tech group-hover:text-white transition-all shadow-[0_0_15px_rgba(0,85,255,0.2)]">
-                            <i class="fa-solid fa-hand-pointer text-2xl md:text-3xl"></i>
+                </div>
+
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="info-card highlight-gold">
+                         <div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+                             <div>
+                                 <span class="px-3 py-1 border border-gold text-gold text-xs font-mono uppercase mb-4 inline-block">
+                                     <span class="cn-text">價值錨點</span><span class="en-text">Value Anchor</span>
+                                 </span>
+                                 <h3 class="text-2xl md:text-3xl font-heavy text-white">
+                                     HKAIIFF <span class="cn-text">國際電影節生態資源</span><span class="en-text">Global Ecosystem</span>
+                                 </h3>
+                             </div>
+                             <i class="fa-solid fa-trophy text-gold/30 text-4xl"></i>
+                         </div>
+                         <p class="content-p">
+                             <span class="cn-text">這不僅是展示平台，更是全球<strong>資產定價中心</strong>。HiChina 會員享有獨家「綠色通道」，作品直接送達國際評審團案頭。</span>
+                             <span class="en-text">Not just a showcase, but a global <strong>Asset Pricing Center</strong>. HiChina members enjoy an exclusive "Green Channel" to the jury.</span>
+                         </p>
+                         
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 border-t border-border pt-8">
+                             <div>
+                                 <h5 class="text-gold font-bold mb-3 text-sm uppercase"><span class="cn-text">全球 30+ 城市巡展</span><span class="en-text">30+ City Global Tour</span></h5>
+                                 <p class="text-xs text-gray-400 leading-relaxed">
+                                     <span class="cn-text">覆蓋東京、首爾、新加坡、倫敦、巴黎、柏林、洛杉磯、紐約、迪拜等。線下展映直接觸達當地發行商。</span>
+                                     <span class="en-text">Tokyo, Seoul, London, Paris, Berlin, LA, NY, Dubai... Offline screenings directly reaching local distributors.</span>
+                                 </p>
+                             </div>
+                             <div>
+                                 <h5 class="text-gold font-bold mb-3 text-sm uppercase"><span class="cn-text">獨角獸金獎池</span><span class="en-text">Unicorn Gold Award</span></h5>
+                                 <p class="text-xs text-gray-400 leading-relaxed">
+                                     <span class="cn-text">設立 <strong>$1,000,000 美元</strong> 現金大獎，並提供頂級 VC 投資對接機會。獲獎作品版權溢價率通常超過 500%。</span>
+                                     <span class="en-text"><strong>$1,000,000 USD</strong> cash prize & VC connection. Award-winning works see 500%+ premium.</span>
+                                 </p>
+                             </div>
+                         </div>
+                    </div>
+            
+                    <div class="info-card highlight-tech">
+                         <div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+                             <div>
+                                 <span class="px-3 py-1 border border-tech text-tech text-xs font-mono uppercase mb-4 inline-block">
+                                     <span class="cn-text">交易變現</span><span class="en-text">Trading Network</span>
+                                 </span>
+                                 <h3 class="text-2xl md:text-3xl font-heavy text-white">
+                                     HKAIFM <span class="cn-text">全球版權交易網</span><span class="en-text">Copyright Trading Net</span>
+                                 </h3>
+                             </div>
+                             <i class="fa-solid fa-globe text-tech/30 text-4xl"></i>
+                         </div>
+                         <p class="content-p">
+                             <span class="cn-text">B2B 的大宗交易市場。我們交易的不是視頻文件，而是<strong>「獨家放映權」、「改編權」和「衍生品開發權」</strong>。</span>
+                             <span class="en-text">B2B bulk market. We trade "Exclusive Rights", "Adaptation Rights", and "Merch Rights". Not just video files.</span>
+                         </p>
+                         
+                         <div class="bg-black/40 p-4 border border-border mt-4">
+                             <div class="text-xs text-gray-500 mb-2 uppercase"><span class="cn-text">全球直通買家網絡</span><span class="en-text">Direct Buyer Network</span></div>
+                             <div class="flex flex-wrap gap-3">
+                                 <span class="text-white text-sm font-bold border border-gray-700 px-2 py-1">Netflix</span>
+                                 <span class="text-white text-sm font-bold border border-gray-700 px-2 py-1">Disney+</span>
+                                 <span class="text-white text-sm font-bold border border-gray-700 px-2 py-1">HBO</span>
+                                 <span class="text-white text-sm font-bold border border-gray-700 px-2 py-1">Amazon Prime</span>
+                                 <span class="text-gray-400 text-sm border border-gray-800 px-2 py-1">300+ Distributors</span>
+                             </div>
+                         </div>
+                    </div>
+                
+                    <div class="border border-border bg-panel p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+                        <div class="flex-1 text-center md:text-left z-10 w-full">
+                            <div class="text-xs text-gray-500 font-mono mb-2 uppercase">TRADITIONAL</div>
+                            <div class="text-xl font-bold text-gray-400 mb-1">
+                                <span class="cn-text">流量分成</span><span class="en-text">Ad Revenue</span>
+                            </div>
+                            <div class="text-sm text-gray-600">
+                                <span class="cn-text">利潤微薄，受制於平台算法</span><span class="en-text">Low margin, algorithm slave</span>
+                            </div>
                         </div>
+                        
+                        <i class="fa-solid fa-arrow-right text-sub text-2xl hidden md:block z-10"></i>
+                        <i class="fa-solid fa-arrow-down text-sub text-2xl md:hidden z-10 py-2"></i>
+                        
+                        <div class="flex-1 text-center md:text-left z-10 pl-0 md:pl-8 w-full">
+                             <div class="text-xs text-gold font-mono mb-2 uppercase">HiChina MODEL</div>
+                             <div class="text-2xl font-heavy text-white mb-1">
+                                 <span class="cn-text">版權資產 (IP Asset)</span><span class="en-text">IP Asset Value</span>
+                             </div>
+                             <div class="text-sm text-gold/90">
+                                 <span class="cn-text">預付費(MG) + 買斷 + 衍生分潤</span><span class="en-text">Prepay(MG) + Buyout + Royalty</span>
+                             </div>
+                        </div>
+                        
+                        <div class="bg-gold text-black font-bold px-6 py-2 text-sm z-10 shadow-[0_0_20px_rgba(212,175,55,0.4)] whitespace-nowrap">
+                            <span class="cn-text">利潤 10x</span><span class="en-text">Profit 10x</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="silicon" class="py-24 md:py-40 px-4 md:px-16 bg-panel border-t border-border relative">
+        <div class="max-w-[1600px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div>
+                <span class="tag-pill border-tech text-tech">CORE ADVANTAGE 02</span>
+                <h2 class="section-header text-white">
+                    <span class="cn-text">硅基生產力：<br><span class="text-tech">創造全新 GDP</span></span>
+                    <span class="en-text">Silicon Force:<br><span class="text-tech">Creating New GDP</span></span>
+                </h2>
+                <div class="h-1 w-24 bg-tech mb-10 shadow-[0_0_20px_#0055FF]"></div>
+                
+                <p class="text-2xl md:text-3xl text-white font-bold mb-8 font-serif leading-tight">
+                    <span class="cn-text">這不是「虛擬偶像」，這是「超級員工」。HiChina 正在定義新質生產力的終極形態。</span>
+                    <span class="en-text">Not "Virtual Idols", but "Super Employees". HiChina defines the ultimate form of new productivity.</span>
+                </p>
+                <div class="content-p space-y-6 text-lg">
+                    <p>
+                        <span class="cn-text">傳統觀念中，數字人只是用於娛樂的皮囊。HiChina 打破了這一認知，將數字人定義為<strong>「硅基勞動力 (Silicon-based Workforce)」</strong>。</span>
+                        <span class="en-text">We redefine digital humans from entertainment skins to <strong>"Silicon-based Workforce"</strong>.</span>
+                    </p>
+                    <p>
+                        <span class="cn-text">通過融合 <strong>StarOS (1:1 數字孿生技術)</strong> 與 <strong>OpenClaw (Skill Agent 架構)</strong>，我們賦予了數字人「大腦」與「雙手」。它們不再是被動的表演者，而是能夠主動聯通現實、操作軟件、處理業務的智能員工。</span>
+                        <span class="en-text">Fusing <strong>StarOS</strong> and <strong>OpenClaw</strong>, we give them "Brains" and "Hands". They actively operate software and process business.</span>
+                    </p>
+                </div>
+
+                <div class="space-y-8 mt-12">
+                    <div class="flex gap-6 info-card p-6 border-tech/30 bg-tech/5 hover:bg-tech/10">
+                        <div class="w-14 h-14 bg-tech/10 text-tech flex items-center justify-center rounded border border-tech shrink-0 text-2xl"><i class="fa-solid fa-brain"></i></div>
                         <div>
-                            <h4 class="text-white font-bold text-lg md:text-xl mb-2">
-                                <span class="en-text">Reality Operation (The Hands)</span><span class="cn-text">现实操作能力 (The Hands)</span>
-                            </h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">
-                                <span class="en-text">Core breakthrough. Silicon employees connect via API to operate CRM, ERP, shipping systems, and email. Completing real business loops from "inquiry" to "shipping".</span>
-                                <span class="cn-text">这是核心突破。硅基员工通过 API 接口，可以直接操作 CRM 系统、ERP 后台、电商发货系统、邮件客户端。从「接待咨询」到「下单发货」再到「售后回访」，完成真实的业务闭环。</span>
-                            </p>
+                            <h4 class="text-white font-bold text-xl mb-2"><span class="cn-text">OpenClaw Agent 大腦</span><span class="en-text">OpenClaw Agent</span></h4>
+                            <p class="text-sm text-gray-400 leading-relaxed"><span class="cn-text">具備邏輯推理與決策能力。能理解複雜商業意圖，處理客戶投訴，進行多輪商務談判，並根據數據反饋自主優化工作策略。</span><span class="en-text">Logical reasoning and decision making. Handles negotiations and optimizes strategies autonomously.</span></p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 info-card p-6 border-tech/30 bg-tech/5 hover:bg-tech/10">
+                        <div class="w-14 h-14 bg-tech/10 text-tech flex items-center justify-center rounded border border-tech shrink-0 text-2xl"><i class="fa-solid fa-hand-pointer"></i></div>
+                        <div>
+                            <h4 class="text-white font-bold text-xl mb-2"><span class="cn-text">現實操作能力 (The Hands)</span><span class="en-text">Reality Operation</span></h4>
+                            <p class="text-sm text-gray-400 leading-relaxed"><span class="cn-text">這是核心突破。硅基員工通過 API 接口，可以直接操作 CRM 系統、ERP 後台、電商發貨系統、郵件客戶端，從「接待」到「發貨」完成真實業務閉環。</span><span class="en-text">Core breakthrough. Agents connect via API to operate CRM, ERP, and shipping systems, closing real business loops.</span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="relative mt-12 lg:mt-0">
-                <div class="border border-gray-800 bg-[#080808] p-8 md:p-12 flex flex-col justify-center items-center text-center relative overflow-hidden group min-h-[500px] md:min-h-[600px]">
+                <div class="border border-border bg-void p-8 md:p-16 flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[600px] shadow-2xl">
                     <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-                    <div class="absolute top-0 right-0 p-4 font-mono text-xs text-tech animate-pulse">SYSTEM STATUS: ONLINE</div>
+                    <div class="absolute top-0 right-0 p-6 font-mono text-xs text-tech animate-pulse">SYSTEM STATUS: ONLINE</div>
                     
                     <div class="relative z-10 w-full">
-                        <div class="text-6xl md:text-8xl text-tech font-heavy mb-4 tracking-tighter">1 : ∞</div>
-                        <div class="text-white text-xl md:text-2xl font-bold mb-10 tracking-[0.3em]">SCALE EFFECT</div>
+                        <h4 class="text-tech font-bold mb-10 uppercase text-sm tracking-[0.2em] border-b border-tech/30 pb-4 inline-block"><span class="cn-text">成本革命 (以電影為例)</span><span class="en-text">Cost Revolution (Movie Case)</span></h4>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-md mx-auto mb-10">
-                            <div class="bg-gray-900 p-6 border border-gray-800">
-                                <div class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Human Input</div>
-                                <div class="text-white font-bold text-xl">
-                                    <span class="en-text">1 Expert</span><span class="cn-text">1 个运营专家</span>
-                                </div>
-                                <div class="text-xs text-gray-600 mt-2">
-                                    <span class="en-text">Strategy / Handling Exceptions</span><span class="cn-text">策略制定 / 异常处理</span>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 text-left w-full">
+                            <div class="bg-panel border border-border p-8 opacity-60 hover:opacity-100 transition-opacity">
+                                <div class="text-xs text-gray-500 mb-4 uppercase font-bold">Traditional Production</div>
+                                <div class="text-3xl text-white font-heavy mb-2">¥1.0 億</div>
+                                <div class="text-xs text-gray-600 mb-6">總成本 (Total Cost)</div>
+                                <div class="space-y-3 text-xs text-gray-500 border-t border-border pt-4 font-mono">
+                                    <div class="flex justify-between"><span>Cycle</span><span>12-18 Months</span></div>
+                                    <div class="flex justify-between"><span>Team</span><span>80 People</span></div>
+                                    <div class="flex justify-between"><span>Risk</span><span>High</span></div>
                                 </div>
                             </div>
-                            <div class="bg-blue-900/20 p-6 border border-blue-500/50 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-tech/10 animate-pulse"></div>
-                                <div class="relative z-10">
-                                    <div class="text-xs text-blue-400 mb-2 uppercase tracking-wide">Silicon Output</div>
-                                    <div class="text-white font-bold text-xl">
-                                        <span class="en-text">1000 Agents</span><span class="cn-text">1000 个硅基分身</span>
-                                    </div>
-                                    <div class="text-xs text-blue-300 mt-2">
-                                        <span class="en-text">24/7 Global Execution</span><span class="cn-text">24/7 全球并发执行</span>
-                                    </div>
+                            
+                            <div class="bg-tech/10 border border-tech p-8 relative overflow-hidden transform scale-105 shadow-[0_0_30px_rgba(0,85,255,0.2)]">
+                                <div class="absolute -right-10 -top-10 w-32 h-32 bg-tech blur-[60px] opacity-40"></div>
+                                <div class="text-xs text-tech mb-4 uppercase font-bold">HiChina AI Native</div>
+                                <div class="text-5xl text-white font-heavy mb-2">¥500 萬</div>
+                                <div class="text-xs text-tech mb-6 font-bold">總成本 (降幅 95%)</div>
+                                <div class="space-y-3 text-xs text-gray-300 border-t border-tech/30 pt-4 font-mono">
+                                    <div class="flex justify-between"><span class="text-white">Cycle</span><span class="text-signal font-bold">3 Months</span></div>
+                                    <div class="flex justify-between"><span class="text-white">Team</span><span class="text-signal font-bold">5 People</span></div>
+                                    <div class="flex justify-between"><span class="text-white">Risk</span><span class="text-signal font-bold">Near Zero</span></div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="pt-8 border-t border-gray-800 w-full">
-                            <div class="text-xs font-mono text-gray-500 mb-4 uppercase">Operational Capabilities</div>
-                            <div class="flex flex-wrap justify-center gap-3">
-                                <span class="px-3 py-2 bg-gray-900 text-gray-300 text-xs font-mono border border-gray-700">Multilingual (20+)</span>
-                                <span class="px-3 py-2 bg-gray-900 text-gray-300 text-xs font-mono border border-gray-700">24/7 Active</span>
-                                <span class="px-3 py-2 bg-gray-900 text-gray-300 text-xs font-mono border border-gray-700">CRM Integration</span>
-                                <span class="px-3 py-2 bg-gray-900 text-gray-300 text-xs font-mono border border-gray-700">Auto-Sales</span>
-                            </div>
-                        </div>
+                        <div class="text-7xl md:text-9xl text-tech font-heavy mb-4 tracking-tighter leading-none">1 : ∞</div>
+                        <div class="text-white text-xl font-bold tracking-[0.3em]"><span class="cn-text">規模效應</span><span class="en-text">SCALE EFFECT</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="ecosystem" class="py-20 md:py-32 px-4 md:px-16 bg-panel border-t border-border">
-        <div class="max-w-[1600px] mx-auto">
-            <div class="text-center mb-16 md:mb-24">
-                <span class="tag-pill border-signal text-signal">ECOSYSTEM VALUE MATRIX</span>
+    <section id="talent" class="py-24 md:py-40 px-4 md:px-16 bg-void border-t border-border">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            <div>
+                <span class="tag-pill border-signal text-signal">CORE ADVANTAGE 03</span>
                 <h2 class="section-header text-white">
-                    <span class="en-text">Ecosystem Value Matrix</span>
-                    <span class="cn-text">生态位与<br>入驻价值矩阵</span>
+                    <span class="cn-text">未來職業與<br><span class="text-signal">國際人才認證</span></span>
+                    <span class="en-text">New Professions &<br><span class="text-signal">Certification</span></span>
                 </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-                    <span class="en-text">HiChina provides an irresistible strategic upgrade path for every key role in the industry chain. Choose your role to unlock the growth engine.</span>
-                    <span class="cn-text">HiChina 为产业链上的每一个关键角色，提供无法拒绝的战略升级路径。<br>选择您的角色，解锁增长引擎。</span>
+                <p class="content-p text-lg">
+                    <span class="cn-text">產業升級的核心是人才升級。HiChina 不培養傳統影視工，我們培養<strong>「AI 時代的架構師」</strong>。HKAIFA (香港AI電影學院) 提供國際認可的職業資格認證體系。</span>
+                    <span class="en-text">Core of upgrading is talent. We cultivate <strong>"AI Architects"</strong>. HKAIFA provides internationally recognized certification.</span>
                 </p>
-            </div>
 
-            <div class="flex flex-wrap justify-center mb-16 border-b border-gray-800 gap-4 md:gap-8 overflow-x-auto scrollbar-hide">
-                <button onclick="switchTab('prod')" id="btn-prod" class="role-btn active">
-                    <span class="en-text">Production Co.</span><span class="cn-text">影视制作公司</span>
-                </button>
-                <button onclick="switchTab('mcn')" id="btn-mcn" class="role-btn">
-                    <span class="en-text">MCN / Agency</span><span class="cn-text">MCN / 经纪公司</span>
-                </button>
-                <button onclick="switchTab('edu')" id="btn-edu" class="role-btn">
-                    <span class="en-text">Training School</span><span class="cn-text">培训学校 / 机构</span>
-                </button>
-            </div>
-
-            <div id="content-prod" class="role-content grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-stretch">
-                <div class="flex flex-col justify-center">
-                    <h3 class="text-3xl md:text-4xl font-heavy text-white mb-8 leading-tight">
-                        <span class="en-text">From "OEM" to <br><span class="text-signal">"IP Holder"</span></span>
-                        <span class="cn-text">从「代工」到<br><span class="text-signal">「IP持有者」</span></span>
-                    </h3>
-                    <p class="content-p text-lg">
-                        <span class="en-text">The biggest pain for traditional studios is "working for hire with thin margins". Join HiChina to access the <strong>HKAIIFF Global Distribution System</strong> and upgrade your business model.</span>
-                        <span class="cn-text">传统影视公司最大的痛苦是「做承制，赚辛苦钱」，利润薄如刀片。加入 HiChina，你将直接接入 <strong class="text-white">HKAIIFF 全球发行与交易体系</strong>，实现商业模式的根本性升级。</span>
-                    </p>
-                    <ul class="space-y-8 mt-8">
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-signal/20 flex items-center justify-center mr-6 mt-1 text-signal flex-shrink-0"><i class="fa-solid fa-check"></i></div>
-                            <div>
-                                <strong class="text-white block text-xl mb-2">
-                                    <span class="en-text">Channel Value</span><span class="cn-text">通道价值：一鱼多吃</span>
-                                </strong>
-                                <span class="text-sm text-gray-500 leading-relaxed">
-                                    <span class="en-text">Produce once, distribute globally. Direct connect to 100+ buyers.</span>
-                                    <span class="cn-text">作品不再压箱底。一次制作，全球分发。直接对接全球 100+ 买家，实现版权的多次售卖与长尾收益。</span>
-                                </span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-signal/20 flex items-center justify-center mr-6 mt-1 text-signal flex-shrink-0"><i class="fa-solid fa-check"></i></div>
-                            <div>
-                                <strong class="text-white block text-xl mb-2">
-                                    <span class="en-text">Profit Disruption</span><span class="cn-text">利润颠覆：抢占顶端</span>
-                                </strong>
-                                <span class="text-sm text-gray-500 leading-relaxed">
-                                    <span class="en-text">Skip intermediaries. Jump from 10% production margin to 80% copyright sales margin.</span>
-                                    <span class="cn-text">跳过中间商，直接赚取发行端利润。从 10% 的制作毛利，跃升至 80% 的版权销售毛利。</span>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-[#050505] p-8 md:p-12 border border-gray-800 flex flex-col justify-center h-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 font-mono text-xs text-gray-600 uppercase">Profit Simulation</div>
-                    
-                    <div class="mb-10 opacity-50">
-                        <div class="flex justify-between items-end mb-3">
-                            <span class="text-gray-400 font-bold uppercase tracking-wider">
-                                <span class="en-text">Traditional OEM</span><span class="cn-text">传统代工收入</span>
-                            </span>
-                            <span class="text-gray-400 font-mono">¥ 500,000</span>
-                        </div>
-                        <div class="w-full h-4 bg-gray-800 rounded-sm overflow-hidden"><div class="h-full bg-gray-500 w-[10%]"></div></div>
+                <div class="grid grid-cols-2 gap-8 mt-12">
+                    <div class="flex flex-col">
+                        <div class="text-5xl font-heavy text-white mb-2">68<span class="text-lg text-signal">+</span></div>
+                        <h4 class="text-gray-400 font-bold text-sm uppercase"><span class="cn-text">個全新職業定義</span><span class="en-text">New Professions</span></h4>
+                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                            <span class="cn-text">AI原生導演、提示詞工程師、數字人架構師、硅基勞動力訓練師...</span>
+                            <span class="en-text">AI-Native Director, Prompt Engineer, Silicon Workforce Trainer...</span>
+                        </p>
                     </div>
-
-                    <div class="mb-12">
-                        <div class="flex justify-between items-end mb-3">
-                            <span class="text-signal font-bold uppercase tracking-wider">
-                                <span class="en-text">HiChina Copyright</span><span class="cn-text">HiChina 版权收入</span>
-                            </span>
-                            <span class="text-signal font-mono text-3xl">¥ 5,000,000</span>
-                        </div>
-                        <div class="w-full h-4 bg-gray-800 rounded-sm overflow-hidden relative">
-                            <div class="h-full bg-signal w-[80%] shadow-[0_0_20px_#CCFF00]"></div>
-                        </div>
-                    </div>
-
-                    <div class="p-8 bg-gray-900 border-l-4 border-signal">
-                        <p class="text-md text-gray-300 italic font-serif">
-                            <span class="en-text">"After joining the base, we are no longer workers, but producers with USD assets."</span>
-                            <span class="cn-text">"加入基地后，我们不再是乙方的打工者，而是拥有美元资产的出品方。"</span>
+                    <div class="flex flex-col">
+                        <div class="text-5xl font-heavy text-white mb-2">1W<span class="text-lg text-signal">+</span></div>
+                        <h4 class="text-gray-400 font-bold text-sm uppercase"><span class="cn-text">單基地年培養規模</span><span class="en-text">Annual Training</span></h4>
+                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                            <span class="cn-text">工業化的培訓體系 + 實戰化的出口項目。學生在校期間就參與海外訂單製作。</span>
+                            <span class="en-text">Industrial training + Real export projects. Students work on overseas orders.</span>
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div id="content-mcn" class="role-content grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-stretch hidden">
-                <div class="flex flex-col justify-center">
-                    <h3 class="text-3xl md:text-4xl font-heavy text-white mb-8 leading-tight">
-                        <span class="en-text">Asset Operation: <br><span class="text-tech">Risk-Free Talents</span></span>
-                        <span class="cn-text">资产化运营：<br><span class="text-tech">永不塌房的艺人</span></span>
-                    </h3>
-                    <p class="content-p text-lg">
-                        <span class="en-text">The future of MCN is not signing more influencers, but owning more "digital assets". HiChina helps you transform "people" into scalable "Silicon Workforce".</span>
-                        <span class="cn-text">MCN 的未来不是签约更多网红（管理成本高、不可控风险大），而是拥有更多「数字资产」。HiChina 提供底层技术，帮你将「人」转化为「可规模化复制的硅基劳动力」。</span>
-                    </p>
-                    <ul class="space-y-8 mt-8">
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-tech/20 flex items-center justify-center mr-6 mt-1 text-tech flex-shrink-0"><i class="fa-solid fa-check"></i></div>
-                            <div>
-                                <strong class="text-white block text-xl mb-2">
-                                    <span class="en-text">Silicon Matrix: Infinite Capacity</span><span class="cn-text">硅基矩阵：无限产能</span>
-                                </strong>
-                                <span class="text-sm text-gray-500 leading-relaxed">
-                                    <span class="en-text">Generate 1000 anchors covering 20 languages 24/7. Not manpower, but code concurrency.</span>
-                                    <span class="cn-text">低成本生成 1000 个带货主播，24 小时不间断覆盖全球 20 个语种市场。这不是人力堆叠，这是代码并发。</span>
-                                </span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-tech/20 flex items-center justify-center mr-6 mt-1 text-tech flex-shrink-0"><i class="fa-solid fa-check"></i></div>
-                            <div>
-                                <strong class="text-white block text-xl mb-2">
-                                    <span class="en-text">Asset Confirmation</span><span class="cn-text">资产确权：绝对控制</span>
-                                </strong>
-                                <span class="text-sm text-gray-500 leading-relaxed">
-                                    <span class="en-text">Blockchain-based asset confirmation. 100% ownership of virtual IPs, no scandal risks.</span>
-                                    <span class="cn-text">基于区块链的数字资产确权。MCN 对虚拟 IP 拥有 100% 所有权，彻底告别艺人解约与塌房风险，资产估值更稳定。</span>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="bg-panel border border-border p-10 relative shadow-2xl">
+                <div class="absolute top-0 right-0 bg-signal text-black px-4 py-2 font-mono text-xs font-bold">HKAIFA CURRICULUM</div>
+                <div class="space-y-4 mt-8">
+                    <div class="p-6 border border-border flex justify-between items-center bg-void hover:border-signal transition-all group cursor-pointer">
+                        <div>
+                            <span class="text-white font-mono text-base block font-bold group-hover:text-signal transition-colors">AIND-203 AI-Native Director</span>
+                            <span class="text-gray-500 text-xs mt-1 block"><span class="cn-text">AI原生導演認證 (高級)</span><span class="en-text">AI Director Certification</span></span>
+                        </div>
+                        <span class="text-white text-sm font-bold group-hover:scale-110 transition-transform bg-gray-800 px-3 py-1 rounded">¥45,000</span>
+                    </div>
+                    <div class="p-6 border border-border flex justify-between items-center bg-void hover:border-signal transition-all group cursor-pointer">
+                        <div>
+                            <span class="text-white font-mono text-base block font-bold group-hover:text-signal transition-colors">CDHO-101 Digital Human Ops</span>
+                            <span class="text-gray-500 text-xs mt-1 block"><span class="cn-text">數字人運營師認證</span><span class="en-text">Digital Human Ops Cert</span></span>
+                        </div>
+                        <span class="text-white text-sm font-bold group-hover:scale-110 transition-transform bg-gray-800 px-3 py-1 rounded">¥28,000</span>
+                    </div>
+                    <div class="p-6 border border-border flex justify-between items-center bg-void hover:border-signal transition-all group cursor-pointer">
+                        <div>
+                            <span class="text-white font-mono text-base block font-bold group-hover:text-signal transition-colors">AISC-201 AI Screenwriter</span>
+                            <span class="text-gray-500 text-xs mt-1 block"><span class="cn-text">AI智能編劇認證</span><span class="en-text">AI Screenwriter Cert</span></span>
+                        </div>
+                        <span class="text-white text-sm font-bold group-hover:scale-110 transition-transform bg-gray-800 px-3 py-1 rounded">¥25,000</span>
+                    </div>
                 </div>
-                <div class="bg-[#050505] p-8 md:p-12 border border-gray-800 flex flex-col justify-center h-full relative">
-                    <div class="absolute top-0 right-0 p-4 font-mono text-xs text-gray-600 uppercase">Scale Simulation</div>
-                    
-                    <div class="grid grid-cols-2 gap-6 text-center h-full items-center">
-                        <div class="p-6 border border-gray-800 flex flex-col justify-center h-48">
-                            <div class="text-red-500 text-3xl font-heavy mb-3">HIGH</div>
-                            <div class="text-sm text-gray-500 font-bold uppercase">
-                                <span class="en-text">Human Risk</span><span class="cn-text">真人风险</span>
-                            </div>
-                        </div>
-                        <div class="p-6 border border-tech bg-tech/10 flex flex-col justify-center h-48">
-                            <div class="text-tech text-3xl font-heavy mb-3">ZERO</div>
-                            <div class="text-sm text-tech font-bold uppercase">
-                                <span class="en-text">Silicon Risk</span><span class="cn-text">硅基风险</span>
-                            </div>
-                        </div>
-                        <div class="p-6 border border-gray-800 flex flex-col justify-center h-48">
-                            <div class="text-gray-500 text-3xl font-heavy mb-3">8 H</div>
-                            <div class="text-sm text-gray-500 font-bold uppercase">
-                                <span class="en-text">Human Cap/Day</span><span class="cn-text">真人产能/天</span>
-                            </div>
-                        </div>
-                        <div class="p-6 border border-tech bg-tech/10 flex flex-col justify-center h-48">
-                            <div class="text-tech text-3xl font-heavy mb-3">24 x ∞</div>
-                            <div class="text-sm text-tech font-bold uppercase">
-                                <span class="en-text">Silicon Cap/Day</span><span class="cn-text">硅基产能/天</span>
-                            </div>
+                <div class="mt-8 pt-6 border-t border-border flex justify-between text-xs text-gray-500 font-mono">
+                    <div>PLACEMENT RATE: >85%</div>
+                    <div>AVG SALARY: ¥300K+ / YR</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ecosystem" class="py-24 md:py-40 px-4 md:px-16 bg-panel border-t border-border">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="text-center mb-20">
+                <span class="tag-pill border-white text-white">JOIN THE ECOSYSTEM</span>
+                <h2 class="section-header text-white">
+                    <span class="cn-text">生態位與<br>入駐價值矩陣</span>
+                    <span class="en-text">Ecosystem Value Matrix</span>
+                </h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                    <span class="cn-text">HiChina 為產業鏈上的每一個關鍵角色，提供無法拒絕的戰略升級路徑。</span>
+                    <span class="en-text">HiChina provides an irresistible strategic upgrade path for every key role in the industry.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="info-card hover:border-gold transition-colors group">
+                    <div class="text-gold text-xs font-mono mb-6 uppercase tracking-widest border-b border-gold/30 pb-2 inline-block">Production Companies</div>
+                    <h3 class="text-2xl text-white font-bold mb-4">
+                        <span class="cn-text">從「代工」到「IP持有者」</span>
+                        <span class="en-text">From OEM to IP Holder</span>
+                    </h3>
+                    <ul class="space-y-4 text-sm text-gray-400 mb-10">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-1 mr-3"></i><span class="cn-text"><strong>通道價值：</strong>作品不再壓箱底，直接對接全球100+買家，實現「一魚多吃」。</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-1 mr-3"></i><span class="cn-text"><strong>利潤顛覆：</strong>跳過中間商，直接賺取發行端利潤。毛利從 10% 躍升至 80%。</span></li>
+                    </ul>
+                    <div class="bg-black/50 p-6 border border-border">
+                        <div class="flex justify-between text-xs mb-3"><span class="text-gray-500 uppercase">Traditional</span><span class="text-gray-500 line-through">¥500K</span></div>
+                        <div class="flex justify-between text-base font-bold"><span class="text-gold">HiChina Model</span><span class="text-white">¥5,000K</span></div>
+                        <div class="h-1 w-full bg-gray-800 mt-3 overflow-hidden">
+                            <div class="h-full bg-gold w-[80%]"></div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="content-edu" class="role-content grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-stretch hidden">
-                <div class="flex flex-col justify-center">
-                    <h3 class="text-3xl md:text-4xl font-heavy text-white mb-8 leading-tight">
-                        <span class="en-text">From "Useless Study" to <br><span class="text-gold">"High Paid Jobs"</span></span>
-                        <span class="cn-text">从「学无所用」到<br><span class="text-gold">「毕业即高薪」</span></span>
+                <div class="info-card hover:border-tech transition-colors group">
+                    <div class="text-tech text-xs font-mono mb-6 uppercase tracking-widest border-b border-tech/30 pb-2 inline-block">MCN / Agencies</div>
+                    <h3 class="text-2xl text-white font-bold mb-4">
+                        <span class="cn-text">資產化運營：永不塌房</span>
+                        <span class="en-text">Risk-Free Asset Ops</span>
                     </h3>
-                    <p class="content-p text-lg">
-                        <span class="en-text">Traditional education is disconnected from market needs. Join HiChina ecosystem to access HKAIFA curriculum and let students earn USD while in school.</span>
-                        <span class="cn-text">传统教育与市场需求严重脱节。加入 HiChina 生态，获得 HKAIFA 权威课程体系，让学生在校期间就成为「美元赚取者」。</span>
-                    </p>
-                    <ul class="space-y-8 mt-8">
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mr-6 mt-1 text-gold flex-shrink-0"><i class="fa-solid fa-check"></i></div>
-                            <div>
-                                <strong class="text-white block text-xl mb-2">
-                                    <span class="en-text">Real Orders</span><span class="cn-text">实战订单导入</span>
-                                </strong>
-                                <span class="text-sm text-gray-500 leading-relaxed">
-                                    <span class="en-text">Direct import of overseas production orders. Classroom is the studio, homework is the product.</span>
-                                    <span class="cn-text">基地直接导入海外真实制作订单。课堂即片场，作业即产品。学生毕业时已拥有丰富的商业项目履历。</span>
-                                </span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mr-6 mt-1 text-gold flex-shrink-0"><i class="fa-solid fa-check"></i></div>
-                            <div>
-                                <strong class="text-white block text-xl mb-2">
-                                    <span class="en-text">New Career High Pay</span><span class="cn-text">新职业高薪就业</span>
-                                </strong>
-                                <span class="text-sm text-gray-500 leading-relaxed">
-                                    <span class="en-text">Train scarce AI Architects, Prompt Engineers. Direct path to high-paying jobs.</span>
-                                    <span class="cn-text">培养市场极度稀缺的 AI 架构师、提示词工程师、硅基劳动力训练师。直通未来 10 年的高薪就业市场。</span>
-                                </span>
-                            </div>
-                        </li>
+                    <ul class="space-y-4 text-sm text-gray-400 mb-10">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-tech mt-1 mr-3"></i><span class="cn-text"><strong>硅基矩陣：</strong>低成本生成1000個帶貨主播，24小時不間斷覆蓋全球20個語種市場。</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-tech mt-1 mr-3"></i><span class="cn-text"><strong>資產確權：</strong>基於區塊鏈確權，MCN 擁有 100% 虛擬 IP 所有權，資產估值穩定。</span></li>
                     </ul>
+                    <div class="bg-black/50 p-6 border border-border">
+                        <div class="flex justify-between text-xs mb-3"><span class="text-gray-500 uppercase">Human Cap</span><span class="text-gray-500">8 Hours/Day</span></div>
+                        <div class="flex justify-between text-base font-bold"><span class="text-tech">Silicon Cap</span><span class="text-white">24 x Infinite</span></div>
+                        <div class="h-1 w-full bg-gray-800 mt-3 overflow-hidden">
+                            <div class="h-full bg-tech w-full animate-pulse"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-[#050505] p-8 md:p-12 border border-gray-800 flex flex-col justify-center h-full relative">
-                    <div class="absolute top-0 right-0 p-4 font-mono text-xs text-gray-600 uppercase">Career Impact</div>
-                    
-                    <div class="space-y-8">
-                        <div class="flex items-center gap-6 opacity-40">
-                            <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-500 font-bold">1</div>
-                            <div>
-                                <div class="text-white font-bold">
-                                    <span class="en-text">Traditional Job</span><span class="cn-text">传统影视就业</span>
-                                </div>
-                                <div class="text-xs text-gray-500">
-                                    <span class="en-text">Low Pay / Competitive</span><span class="cn-text">内卷 / 低薪</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex justify-center ml-5 h-8 w-[2px] bg-gray-800"></div>
-                        
-                        <div class="flex items-center gap-6">
-                            <div class="w-10 h-10 rounded-full bg-gold text-black flex items-center justify-center font-bold shadow-[0_0_15px_#D4AF37]">2</div>
-                            <div>
-                                <div class="text-white font-bold text-xl">
-                                    <span class="en-text">AI Architect</span><span class="cn-text">AI 架构师就业</span>
-                                </div>
-                                <div class="text-xs text-gold">
-                                    <span class="en-text">Top 10% Salary</span><span class="cn-text">Top 10% 高薪</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-10 p-6 bg-gray-900 text-sm text-gray-300 border border-gray-700">
-                            <div class="text-gold font-bold mb-2 uppercase tracking-wide">
-                                <span class="en-text">Result Data</span><span class="cn-text">成果数据</span>
-                            </div>
-                            <span class="en-text">Student avg earnings <span class="text-white font-bold">$500+ / mo</span><br>Employment Rate <span class="text-white font-bold">98%</span></span>
-                            <span class="cn-text">学生在校期间人均创收 <span class="text-white font-bold">$500+ / 月</span><br>毕业就业率 <span class="text-white font-bold">98%</span></span>
+
+                <div class="info-card hover:border-signal transition-colors group">
+                    <div class="text-signal text-xs font-mono mb-6 uppercase tracking-widest border-b border-signal/30 pb-2 inline-block">Universities</div>
+                    <h3 class="text-2xl text-white font-bold mb-4">
+                        <span class="cn-text">從「學無所用」到「畢業高薪」</span>
+                        <span class="en-text">From Theory to High Pay</span>
+                    </h3>
+                    <ul class="space-y-4 text-sm text-gray-400 mb-10">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-signal mt-1 mr-3"></i><span class="cn-text"><strong>實戰訂單：</strong>基地直接導入海外真實製作訂單。課堂即片場，作業即產品。</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-signal mt-1 mr-3"></i><span class="cn-text"><strong>就業保障：</strong>培養市場極度稀缺的「AI 複合型人才」，避開內卷，直通高薪。</span></li>
+                    </ul>
+                    <div class="bg-black/50 p-6 border border-border">
+                        <div class="flex justify-between text-xs mb-3"><span class="text-gray-500 uppercase">Traditional Job</span><span class="text-gray-500">Competitive</span></div>
+                        <div class="flex justify-between text-base font-bold"><span class="text-signal">AI Architect</span><span class="text-white">Top 10% Salary</span></div>
+                        <div class="h-1 w-full bg-gray-800 mt-3 overflow-hidden">
+                            <div class="h-full bg-signal w-[90%]"></div>
                         </div>
                     </div>
                 </div>
@@ -769,13 +715,69 @@
         </div>
     </section>
 
-    <footer class="bg-black py-20 px-4 md:px-16 border-t border-gray-900 font-mono text-sm text-gray-600">
-        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div class="col-span-1 md:col-span-1">
+    <section id="impact" class="py-24 md:py-40 px-4 md:px-16 bg-void border-t border-border">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="section-header text-white">
+                    <span class="cn-text">五年戰略規劃</span><span class="en-text">5-Year Strategic Plan</span>
+                </h2>
+                <p class="text-gray-500"><span class="cn-text">目標與承諾</span><span class="en-text">Targets & Commitments</span></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
+                <div class="info-card bg-panel border-none">
+                    <div class="text-xs text-gray-500 mb-3 uppercase tracking-widest">OUTPUT (Y5)</div>
+                    <div class="text-4xl text-white font-heavy mb-2">¥100億</div>
+                    <div class="text-xs text-gray-600"><span class="cn-text">產業產值</span><span class="en-text">Output</span></div>
+                </div>
+                <div class="info-card bg-panel border-none">
+                    <div class="text-xs text-gray-500 mb-3 uppercase tracking-widest">JOBS (Y5)</div>
+                    <div class="text-4xl text-white font-heavy mb-2">30,000</div>
+                    <div class="text-xs text-gray-600"><span class="cn-text">創造就業</span><span class="en-text">Jobs Created</span></div>
+                </div>
+                <div class="info-card bg-panel border-none">
+                    <div class="text-xs text-gray-500 mb-3 uppercase tracking-widest">EXPORT (Y5)</div>
+                    <div class="text-4xl text-signal font-heavy mb-2">$200M</div>
+                    <div class="text-xs text-gray-600"><span class="cn-text">年出口創匯</span><span class="en-text">Annual Export</span></div>
+                </div>
+                <div class="info-card bg-panel border-none">
+                    <div class="text-xs text-gray-500 mb-3 uppercase tracking-widest">TAX (5Y)</div>
+                    <div class="text-4xl text-white font-heavy mb-2">¥11.5億</div>
+                    <div class="text-xs text-gray-600"><span class="cn-text">累計稅收</span><span class="en-text">Total Tax</span></div>
+                </div>
+                <div class="info-card bg-panel border-none">
+                    <div class="text-xs text-gray-500 mb-3 uppercase tracking-widest">COMPANIES</div>
+                    <div class="text-4xl text-white font-heavy mb-2">2,000</div>
+                    <div class="text-xs text-gray-600"><span class="cn-text">入駐企業</span><span class="en-text">Companies</span></div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-panel to-void border border-signal/30 p-10 md:p-16 relative overflow-hidden rounded-sm">
+                <div class="absolute right-0 top-0 text-[120px] md:text-[250px] text-signal opacity-[0.03] font-heavy leading-none -mr-10 -mt-10 select-none">ROI</div>
+                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+                    <div class="max-w-2xl">
+                        <h3 class="text-3xl text-white font-bold mb-6"><span class="cn-text">政府投入產出比</span><span class="en-text">Government ROI</span></h3>
+                        <p class="text-gray-400 text-base leading-relaxed">
+                            <span class="cn-text">總投入預計 ¥2.9億（場地建設+前三年運營補貼）。預計五年總回報 ¥57.5億（包含稅收、就業社保、產業鏈稅收及GDP增長價值）。這不僅是產業升級，更是一次巨大的歷史性紅利。</span>
+                            <span class="en-text">Total Input ¥290M (Venue + Subsidy). Estimated 5-Year Return ¥5.75B (Tax + Jobs + GDP). This is not just an upgrade, but a historic dividend.</span>
+                        </p>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <span class="text-sm text-signal font-mono tracking-widest uppercase">INVESTMENT RATIO</span>
+                        <span class="text-6xl md:text-8xl font-heavy text-signal">1 : 19.8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-void py-24 px-4 md:px-16 border-t border-border font-mono text-xs text-sub" id="contact">
+        <div class="max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
+            <div class="col-span-1">
                 <span class="text-white font-heavy text-3xl tracking-tight block mb-6">HiChina</span>
-                <p class="max-w-xs text-gray-500 leading-relaxed mb-8">
-                    <span class="en-text">Redefining Global Export Strategy. Transforming Chinese digital content into global assets.</span>
-                    <span class="cn-text">推动中国数字内容与硅基劳动力的全球化进程。</span>
+                <p class="max-w-xs text-gray-500 leading-relaxed mb-8 text-sm">
+                    <span class="cn-text">推動中國數字內容與硅基勞動力的全球化進程。定義數字出口新標準。</span>
+                    <span class="en-text">Redefining Global Export Strategy. Transforming content into assets. Setting new standards.</span>
                 </p>
                 <div class="flex gap-6 text-xl">
                     <i class="fa-brands fa-twitter hover:text-white cursor-pointer transition-colors"></i>
@@ -785,99 +787,78 @@
             </div>
             
             <div>
-                <h4 class="text-white mb-8 font-bold uppercase tracking-widest border-b border-gray-900 pb-4 inline-block">
-                    <span class="en-text">Core Strategy</span><span class="cn-text">核心战略</span>
-                </h4>
-                <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-gold transition-colors block"><span class="en-text">Channel & Value Anchor</span><span class="cn-text">出海通道与价值锚定</span></a></li>
-                    <li><a href="#" class="hover:text-tech transition-colors block"><span class="en-text">Silicon Workforce</span><span class="cn-text">硅基劳动力矩阵</span></a></li>
-                    <li><a href="#" class="hover:text-signal transition-colors block"><span class="en-text">Digital Asset System</span><span class="cn-text">数字资产管理体系</span></a></li>
+                <h4 class="text-white mb-6 uppercase tracking-widest font-bold">Core Strategy</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#" class="hover:text-gold transition-colors">HKAIIFF Ecosystem</a></li>
+                    <li><a href="#" class="hover:text-tech transition-colors">HKAIFM Trading Network</a></li>
+                    <li><a href="#" class="hover:text-signal transition-colors">Silicon Workforce Matrix</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-white mb-8 font-bold uppercase tracking-widest border-b border-gray-900 pb-4 inline-block">
-                    <span class="en-text">Ecosystem</span><span class="cn-text">生态入驻</span>
-                </h4>
-                <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-white transition-colors block"><span class="en-text">Production Companies</span><span class="cn-text">影视制作公司入驻</span></a></li>
-                    <li><a href="#" class="hover:text-white transition-colors block"><span class="en-text">MCN Transformation</span><span class="cn-text">MCN 数字化转型</span></a></li>
-                    <li><a href="#" class="hover:text-white transition-colors block"><span class="en-text">Training Bases</span><span class="cn-text">院校实训基地合作</span></a></li>
+                <h4 class="text-white mb-6 uppercase tracking-widest font-bold">Ecosystem</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Production Transformation</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">MCN Assetization</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">University Training</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-white mb-8 font-bold uppercase tracking-widest border-b border-gray-900 pb-4 inline-block">Contact</h4>
-                <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-white transition-colors block"><span class="en-text">Download Whitepaper V5.0</span><span class="cn-text">下载白皮书 V5.0</span></a></li>
-                    <li><a href="#" class="hover:text-white transition-colors block"><span class="en-text">Join Ecosystem</span><span class="cn-text">申请加入生态</span></a></li>
-                    <li class="mt-4 text-xs text-gray-700">Hong Kong AI International Film Festival Committee</li>
+                <h4 class="text-white mb-6 uppercase tracking-widest font-bold">Contact</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><span class="cn-text">下載白皮書 V8.0</span><span class="en-text">Download Whitepaper</span></li>
+                    <li><span class="cn-text">申請加入生態</span><span class="en-text">Join Ecosystem</span></li>
+                    <li class="pt-4 text-gray-600">Hong Kong AI International Film Festival Committee</li>
                 </ul>
             </div>
         </div>
-        <div class="max-w-[1600px] mx-auto mt-24 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-            <span>© 2025 HiChina Global. All Rights Reserved.</span>
-            <span>Strategic Partner: HKAIIFF | Powered by AIF.BOT</span>
+        <div class="max-w-[1800px] mx-auto mt-20 pt-8 border-t border-border flex flex-col md:flex-row justify-between gap-4">
+            <span>© 2026 HiChina Global. All Rights Reserved.</span>
+            <span>Powered by AIF.BOT & StarOS</span>
         </div>
     </footer>
 
     <script>
-        // Language Toggle Logic
+        // 語言切換邏輯
         function toggleLanguage() {
-            document.body.classList.toggle('lang-cn');
+            document.body.classList.toggle('lang-en');
         }
 
-        // GSAP Init
+        // GSAP 動畫初始化
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero Animation
-        gsap.from(".animate-up", {
-            y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out"
-        });
-
-        // Scroll Animations
-        gsap.utils.toArray('section').forEach(section => {
-            gsap.from(section.querySelectorAll('h2, .content-p, .strategic-card, .tag-pill'), {
-                y: 40, opacity: 0, duration: 0.8, stagger: 0.1,
+        // 通用向上浮動動畫
+        gsap.utils.toArray('.animate-up').forEach((elem) => {
+            gsap.from(elem, {
+                y: 50, opacity: 0, duration: 1, ease: "power3.out",
                 scrollTrigger: {
-                    trigger: section,
-                    start: "top 80%"
+                    trigger: elem,
+                    start: "top 90%"
                 }
             });
         });
 
-        // Role Tab Switching
-        function switchTab(id) {
-            document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + id).classList.add('active');
-            
-            document.querySelectorAll('.role-content').forEach(content => {
-                content.classList.remove('active');
-                content.style.display = 'none';
+        // 滾動觸發卡片動畫
+        gsap.utils.toArray('.info-card').forEach((card, i) => {
+            gsap.from(card, {
+                y: 50, opacity: 0, duration: 0.8, delay: i * 0.1,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%"
+                }
             });
-
-            const activeContent = document.getElementById('content-' + id);
-            activeContent.style.display = 'grid';
-            setTimeout(() => activeContent.classList.add('active'), 10);
-            
-            gsap.from(activeContent.children, {
-                y: 20, opacity: 0, duration: 0.5, stagger: 0.1
-            });
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            switchTab('prod');
         });
 
-        // Navbar Scroll Effect
+        // 導航欄滾動變色
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
+            const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                nav.classList.add('bg-black', 'shadow-2xl');
+                nav.classList.add('bg-void', 'shadow-2xl');
                 nav.classList.remove('bg-void/90');
             } else {
                 nav.classList.add('bg-void/90');
-                nav.classList.remove('bg-black', 'shadow-2xl');
+                nav.classList.remove('bg-void', 'shadow-2xl');
             }
         });
     </script>
